@@ -500,11 +500,22 @@
 
     <div style="width:100%;text-align:center;margin:16px 0 4px;color:var(--muted);font-size:11px;letter-spacing:4px;text-transform:uppercase;">Grammaire</div>
 
+    <div class="level-card" onclick="showScreen('grammar-jp')" style="border-color:#b44dff33;">
+      <div class="level-card-left">
+        <div class="level-badge" style="background:rgba(180,77,255,0.1);color:#b44dff;">文法</div>
+        <div class="level-info">
+          <h3>Grammaire</h3>
+          <p>Théorie · Formes · Conditionnels</p>
+        </div>
+      </div>
+      <span class="level-arrow" style="color:#b44dff;">›</span>
+    </div>
+
     <div class="level-card" onclick="showScreen('grammar-verbs')" style="border-color:#ff9f4d33;">
       <div class="level-card-left">
         <div class="level-badge" style="background:rgba(255,159,77,0.1);color:#ff9f4d;">動詞</div>
         <div class="level-info">
-          <h3>Verbes</h3>
+          <h3>Conjugaison</h3>
           <p>Ichidan · Godan · Fiche + Quiz</p>
         </div>
       </div>
@@ -520,6 +531,17 @@
         </div>
       </div>
       <span class="level-arrow" style="color:#4dffcc;">›</span>
+    </div>
+
+    <div class="level-card" onclick="showScreen('grammar-jp');showGTab(8);" style="border-color:#ffd74d33;margin-top:4px;">
+      <div class="level-card-left">
+        <div class="level-badge" style="background:rgba(255,215,77,0.1);color:#ffd74d;">🎓</div>
+        <div class="level-info">
+          <h3>Quiz global</h3>
+          <p>Verbes · Adjectifs · Grammaire</p>
+        </div>
+      </div>
+      <span class="level-arrow" style="color:#ffd74d;">›</span>
     </div>
 
   </div>
@@ -3025,7 +3047,7 @@ if ('serviceWorker' in navigator) {
 <div id="grammar-verbs" class="screen" style="flex-direction:column;padding:0;">
   <div style="position:sticky;top:0;z-index:10;background:var(--bg);padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
     <button class="back-btn" style="position:static;margin:0;" onclick="showScreen('home')">←</button>
-    <span style="font-size:18px;font-weight:700;">Verbes japonais</span>
+    <span style="font-size:18px;font-weight:700;">Conjugaison</span>
   </div>
 
   <!-- TABS -->
@@ -3037,72 +3059,112 @@ if ('serviceWorker' in navigator) {
   <!-- FICHE VERBES -->
   <div id="v-fiche" style="overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:20px;">
 
+    <!-- THÉORIE GÉNÉRALE -->
+    <div style="background:rgba(255,159,77,0.06);border-radius:16px;padding:16px;border:1px solid rgba(255,159,77,0.2);">
+      <div style="font-size:13px;color:var(--text);line-height:1.7;">
+        <strong style="color:#ff9f4d;">Le japonais a 3 groupes de verbes.</strong> La conjugaison dépend du groupe :<br>
+        • <strong style="color:#4d9fff;">Groupe 1 — Ichidan (一段・いちだん) :</strong> verbes en る précédé de e/i. On retire る et on ajoute la terminaison directement.<br>
+        • <strong style="color:#ff9f4d;">Groupe 2 — Godan (五段・ごだん) :</strong> tous les autres verbes (う、く、ぐ、す、つ、ぬ、ぶ、む、る). La voyelle finale change selon la colonne de la syllabe.<br>
+        • <strong style="color:#ff4d4d;">Groupe 3 — Irréguliers :</strong> seulement する (faire) et くる (venir).<br><br>
+        <strong style="color:#4dffcc;">Registres :</strong> La forme en <strong>ます</strong> est polie (ていねいご). La forme courte (dictionnaire) est familière (くだけたことば).
+      </div>
+    </div>
+
+    <!-- ICHIDAN -->
     <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4d9fff;">
-      <h2 style="color:#4d9fff;margin-bottom:12px;font-size:16px;">⚡ Verbes Ichidan (一段)</h2>
-      <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">Se terminent par <strong style="color:var(--text);">る</strong> précédé d'une voyelle (e/i). Conjugaison simple : on retire る et on ajoute la terminaison.</p>
+      <h2 style="color:#4d9fff;margin-bottom:8px;font-size:16px;">⚡ Groupe 1 — Ichidan (一段・いちだん)</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:4px;">Verbes en <strong style="color:var(--text);">る</strong> précédé d'une voyelle e ou i. Reconnaissables car la syllabe avant る est toujours en え ou い.</p>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">👉 Méthode : retirer る → ajouter la terminaison directement. Ex : 食べ<s>る</s> + ます = 食べます</p>
       <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
           <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
-            <td style="padding:8px 4px;">Forme</td><td style="padding:8px 4px;">Terminaison</td><td style="padding:8px 4px;">食べる (manger)</td><td style="padding:8px 4px;">見る (voir)</td>
+            <td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">食べる（たべる）manger</td><td style="padding:6px 4px;">見る（みる）voir</td><td style="padding:6px 4px;">起きる（おきる）se lever</td>
           </tr>
-          <tr style="border-bottom:1px solid var(--border)11;">
-            <td style="padding:8px 4px;color:#4dffcc;">Dictionnaire</td><td style="padding:8px 4px;">る</td><td style="padding:8px 4px;">食べる</td><td style="padding:8px 4px;">見る</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)11;">
-            <td style="padding:8px 4px;color:#4dffcc;">Présent poli</td><td style="padding:8px 4px;">ます</td><td style="padding:8px 4px;">食べます</td><td style="padding:8px 4px;">見ます</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)11;">
-            <td style="padding:8px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:8px 4px;">ません</td><td style="padding:8px 4px;">食べません</td><td style="padding:8px 4px;">見ません</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)11;">
-            <td style="padding:8px 4px;color:#4dffcc;">Passé poli</td><td style="padding:8px 4px;">ました</td><td style="padding:8px 4px;">食べました</td><td style="padding:8px 4px;">見ました</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)11;">
-            <td style="padding:8px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:8px 4px;">ませんでした</td><td style="padding:8px 4px;">食べませんでした</td><td style="padding:8px 4px;">見ませんでした</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border)11;">
-            <td style="padding:8px 4px;color:#4dffcc;">Forme て</td><td style="padding:8px 4px;">て</td><td style="padding:8px 4px;">食べて</td><td style="padding:8px 4px;">見て</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 4px;color:#4dffcc;">Potentiel</td><td style="padding:8px 4px;">られる</td><td style="padding:8px 4px;">食べられる</td><td style="padding:8px 4px;">見られる</td>
-          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Dictionnaire</td><td style="padding:6px 4px;color:var(--muted);">forme de base</td><td style="padding:6px 4px;">食べる</td><td style="padding:6px 4px;">見る</td><td style="padding:6px 4px;">起きる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent poli</td><td style="padding:6px 4px;color:var(--muted);">je mange</td><td style="padding:6px 4px;">食べます</td><td style="padding:6px 4px;">見ます</td><td style="padding:6px 4px;">起きます</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:6px 4px;color:var(--muted);">je ne mange pas</td><td style="padding:6px 4px;">食べません</td><td style="padding:6px 4px;">見ません</td><td style="padding:6px 4px;">起きません</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé poli</td><td style="padding:6px 4px;color:var(--muted);">j'ai mangé</td><td style="padding:6px 4px;">食べました</td><td style="padding:6px 4px;">見ました</td><td style="padding:6px 4px;">起きました</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:6px 4px;color:var(--muted);">je n'ai pas mangé</td><td style="padding:6px 4px;">食べませんでした</td><td style="padding:6px 4px;">見ませんでした</td><td style="padding:6px 4px;">起きませんでした</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme て（て）</td><td style="padding:6px 4px;color:var(--muted);">enchaîner/ordre</td><td style="padding:6px 4px;">食べて</td><td style="padding:6px 4px;">見て</td><td style="padding:6px 4px;">起きて</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">En train de</td><td style="padding:6px 4px;color:var(--muted);">je suis en train de</td><td style="padding:6px 4px;">食べている</td><td style="padding:6px 4px;">見ている</td><td style="padding:6px 4px;">起きている</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme ない</td><td style="padding:6px 4px;color:var(--muted);">ne pas (court)</td><td style="padding:6px 4px;">食べない</td><td style="padding:6px 4px;">見ない</td><td style="padding:6px 4px;">起きない</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Potentiel</td><td style="padding:6px 4px;color:var(--muted);">pouvoir faire</td><td style="padding:6px 4px;">食べられる</td><td style="padding:6px 4px;">見られる</td><td style="padding:6px 4px;">起きられる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passif</td><td style="padding:6px 4px;color:var(--muted);">être fait</td><td style="padding:6px 4px;">食べられる</td><td style="padding:6px 4px;">見られる</td><td style="padding:6px 4px;">起きられる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Causatif</td><td style="padding:6px 4px;color:var(--muted);">faire faire</td><td style="padding:6px 4px;">食べさせる</td><td style="padding:6px 4px;">見させる</td><td style="padding:6px 4px;">起きさせる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Volitif poli</td><td style="padding:6px 4px;color:var(--muted);">allons faire</td><td style="padding:6px 4px;">食べましょう</td><td style="padding:6px 4px;">見ましょう</td><td style="padding:6px 4px;">起きましょう</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Conditionnel ば</td><td style="padding:6px 4px;color:var(--muted);">si on mange</td><td style="padding:6px 4px;">食べれば</td><td style="padding:6px 4px;">見れば</td><td style="padding:6px 4px;">起きれば</td></tr>
         </table>
       </div>
     </div>
 
+    <!-- GODAN -->
     <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
-      <h2 style="color:#ff9f4d;margin-bottom:12px;font-size:16px;">🔥 Verbes Godan (五段)</h2>
-      <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">Terminent par う、く、ぐ、す、つ、ぬ、ぶ、む、る (précédé d'une consonne). La dernière syllabe change selon la forme.</p>
+      <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:16px;">🔥 Groupe 2 — Godan (五段・ごだん)</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:4px;">Terminent par う、く、ぐ、す、つ、ぬ、ぶ、む、る (précédé d'une consonne). La voyelle de la dernière syllabe change sur 5 lignes de la table hiragana → d'où le nom "cinq niveaux" (ごだん).</p>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">👉 Pour les formes polies : changer la voyelle finale en い + ます. Ex : 書く → 書き + ます = 書きます</p>
       <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
           <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
-            <td style="padding:8px 4px;">Forme</td><td style="padding:8px 4px;">書く (écrire)</td><td style="padding:8px 4px;">飲む (boire)</td><td style="padding:8px 4px;">話す (parler)</td>
+            <td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">書く（かく）écrire</td><td style="padding:6px 4px;">飲む（のむ）boire</td><td style="padding:6px 4px;">話す（はなす）parler</td><td style="padding:6px 4px;">行く（いく）aller</td>
           </tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Dictionnaire</td><td style="padding:8px 4px;">書く</td><td style="padding:8px 4px;">飲む</td><td style="padding:8px 4px;">話す</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Présent poli</td><td style="padding:8px 4px;">書きます</td><td style="padding:8px 4px;">飲みます</td><td style="padding:8px 4px;">話します</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:8px 4px;">書きません</td><td style="padding:8px 4px;">飲みません</td><td style="padding:8px 4px;">話しません</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Passé poli</td><td style="padding:8px 4px;">書きました</td><td style="padding:8px 4px;">飲みました</td><td style="padding:8px 4px;">話しました</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Forme て</td><td style="padding:8px 4px;">書いて</td><td style="padding:8px 4px;">飲んで</td><td style="padding:8px 4px;">話して</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Potentiel</td><td style="padding:8px 4px;">書ける</td><td style="padding:8px 4px;">飲める</td><td style="padding:8px 4px;">話せる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Dictionnaire</td><td style="padding:6px 4px;color:var(--muted);">forme de base</td><td style="padding:6px 4px;">書く</td><td style="padding:6px 4px;">飲む</td><td style="padding:6px 4px;">話す</td><td style="padding:6px 4px;">行く</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent poli</td><td style="padding:6px 4px;color:var(--muted);">j'écris</td><td style="padding:6px 4px;">書きます</td><td style="padding:6px 4px;">飲みます</td><td style="padding:6px 4px;">話します</td><td style="padding:6px 4px;">行きます</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:6px 4px;color:var(--muted);">je n'écris pas</td><td style="padding:6px 4px;">書きません</td><td style="padding:6px 4px;">飲みません</td><td style="padding:6px 4px;">話しません</td><td style="padding:6px 4px;">行きません</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé poli</td><td style="padding:6px 4px;color:var(--muted);">j'ai écrit</td><td style="padding:6px 4px;">書きました</td><td style="padding:6px 4px;">飲みました</td><td style="padding:6px 4px;">話しました</td><td style="padding:6px 4px;">行きました</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:6px 4px;color:var(--muted);">je n'ai pas écrit</td><td style="padding:6px 4px;">書きませんでした</td><td style="padding:6px 4px;">飲みませんでした</td><td style="padding:6px 4px;">話しませんでした</td><td style="padding:6px 4px;">行きませんでした</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme て（て）</td><td style="padding:6px 4px;color:var(--muted);">enchaîner</td><td style="padding:6px 4px;">書いて</td><td style="padding:6px 4px;">飲んで</td><td style="padding:6px 4px;">話して</td><td style="padding:6px 4px;">行って</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">En train de</td><td style="padding:6px 4px;color:var(--muted);">je suis en train de</td><td style="padding:6px 4px;">書いている</td><td style="padding:6px 4px;">飲んでいる</td><td style="padding:6px 4px;">話している</td><td style="padding:6px 4px;">行っている</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme ない</td><td style="padding:6px 4px;color:var(--muted);">ne pas (court)</td><td style="padding:6px 4px;">書かない</td><td style="padding:6px 4px;">飲まない</td><td style="padding:6px 4px;">話さない</td><td style="padding:6px 4px;">行かない</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Potentiel</td><td style="padding:6px 4px;color:var(--muted);">pouvoir faire</td><td style="padding:6px 4px;">書ける</td><td style="padding:6px 4px;">飲める</td><td style="padding:6px 4px;">話せる</td><td style="padding:6px 4px;">行ける</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passif</td><td style="padding:6px 4px;color:var(--muted);">être fait</td><td style="padding:6px 4px;">書かれる</td><td style="padding:6px 4px;">飲まれる</td><td style="padding:6px 4px;">話される</td><td style="padding:6px 4px;">行かれる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Causatif</td><td style="padding:6px 4px;color:var(--muted);">faire faire</td><td style="padding:6px 4px;">書かせる</td><td style="padding:6px 4px;">飲ませる</td><td style="padding:6px 4px;">話させる</td><td style="padding:6px 4px;">行かせる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Volitif poli</td><td style="padding:6px 4px;color:var(--muted);">allons faire</td><td style="padding:6px 4px;">書きましょう</td><td style="padding:6px 4px;">飲みましょう</td><td style="padding:6px 4px;">話しましょう</td><td style="padding:6px 4px;">行きましょう</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Conditionnel ば</td><td style="padding:6px 4px;color:var(--muted);">si on écrit</td><td style="padding:6px 4px;">書けば</td><td style="padding:6px 4px;">飲めば</td><td style="padding:6px 4px;">話せば</td><td style="padding:6px 4px;">行けば</td></tr>
         </table>
       </div>
       <div style="margin-top:12px;background:rgba(255,159,77,0.08);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);">
-        💡 <strong style="color:var(--text);">Forme て godan :</strong><br>
-        く→いて · ぐ→いで · す→して · つ/う/る→って · ぬ/ぶ/む→んで
+        💡 <strong style="color:var(--text);">Règles de la forme て（て）pour les godan :</strong><br>
+        く→いて · ぐ→いで · す→して · つ/う/る→って · ぬ/ぶ/む→んで<br>
+        ⚠️ Exception : 行く（いく）→ 行って（いって）et non 行いて
       </div>
     </div>
 
+    <!-- IRREGULIERS -->
     <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff4d4d;">
-      <h2 style="color:#ff4d4d;margin-bottom:12px;font-size:16px;">⚠️ Verbes irréguliers</h2>
-      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <h2 style="color:#ff4d4d;margin-bottom:8px;font-size:16px;">⚠️ Groupe 3 — Irréguliers</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Seulement 2 verbes : <strong style="color:var(--text);">する（する）</strong> (faire) et <strong style="color:var(--text);">くる（くる）</strong> (venir). À apprendre par cœur !</p>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
-          <td style="padding:8px 4px;">Forme</td><td style="padding:8px 4px;">する (faire)</td><td style="padding:8px 4px;">くる (venir)</td>
+          <td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">する（する）faire</td><td style="padding:6px 4px;">くる（くる）venir</td>
         </tr>
-        <tr><td style="padding:8px 4px;color:#4dffcc;">Présent poli</td><td style="padding:8px 4px;">します</td><td style="padding:8px 4px;">きます</td></tr>
-        <tr><td style="padding:8px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:8px 4px;">しません</td><td style="padding:8px 4px;">きません</td></tr>
-        <tr><td style="padding:8px 4px;color:#4dffcc;">Passé poli</td><td style="padding:8px 4px;">しました</td><td style="padding:8px 4px;">きました</td></tr>
-        <tr><td style="padding:8px 4px;color:#4dffcc;">Forme て</td><td style="padding:8px 4px;">して</td><td style="padding:8px 4px;">きて</td></tr>
-        <tr><td style="padding:8px 4px;color:#4dffcc;">Potentiel</td><td style="padding:8px 4px;">できる</td><td style="padding:8px 4px;">こられる</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Dictionnaire</td><td style="padding:6px 4px;color:var(--muted);">base</td><td style="padding:6px 4px;">する</td><td style="padding:6px 4px;">くる（来る）</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Présent poli</td><td style="padding:6px 4px;color:var(--muted);">je fais</td><td style="padding:6px 4px;">します</td><td style="padding:6px 4px;">きます</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:6px 4px;color:var(--muted);">je ne fais pas</td><td style="padding:6px 4px;">しません</td><td style="padding:6px 4px;">きません</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Passé poli</td><td style="padding:6px 4px;color:var(--muted);">j'ai fait</td><td style="padding:6px 4px;">しました</td><td style="padding:6px 4px;">きました</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:6px 4px;color:var(--muted);">je n'ai pas fait</td><td style="padding:6px 4px;">しませんでした</td><td style="padding:6px 4px;">きませんでした</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Forme て（て）</td><td style="padding:6px 4px;color:var(--muted);">enchaîner</td><td style="padding:6px 4px;">して</td><td style="padding:6px 4px;">きて</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Forme ない</td><td style="padding:6px 4px;color:var(--muted);">ne pas</td><td style="padding:6px 4px;">しない</td><td style="padding:6px 4px;">こない</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Potentiel</td><td style="padding:6px 4px;color:var(--muted);">pouvoir faire</td><td style="padding:6px 4px;">できる</td><td style="padding:6px 4px;">こられる</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Passif</td><td style="padding:6px 4px;color:var(--muted);">être fait</td><td style="padding:6px 4px;">される</td><td style="padding:6px 4px;">こられる</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Causatif</td><td style="padding:6px 4px;color:var(--muted);">faire faire</td><td style="padding:6px 4px;">させる</td><td style="padding:6px 4px;">こさせる</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">Volitif poli</td><td style="padding:6px 4px;color:var(--muted);">allons faire</td><td style="padding:6px 4px;">しましょう</td><td style="padding:6px 4px;">きましょう</td></tr>
+      </table>
+    </div>
+
+    <!-- GODAN FAUX ICHIDAN -->
+    <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+      <h2 style="color:#b44dff;margin-bottom:8px;font-size:16px;">⚠️ Godan qui ressemblent à Ichidan</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Ces verbes se terminent par る mais sont godan ! La syllabe avant る se termine par a/u/o (pas e/i). À mémoriser !</p>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+          <td style="padding:6px 4px;">Verbe</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Forme て</td><td style="padding:6px 4px;">Forme ない</td>
+        </tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">しゃべる</td><td style="padding:6px 4px;">しゃべる</td><td style="padding:6px 4px;">bavarder</td><td style="padding:6px 4px;">しゃべって</td><td style="padding:6px 4px;">しゃべらない</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">はいる（入る）</td><td style="padding:6px 4px;">はいる</td><td style="padding:6px 4px;">entrer</td><td style="padding:6px 4px;">はいって</td><td style="padding:6px 4px;">はいらない</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">はしる（走る）</td><td style="padding:6px 4px;">はしる</td><td style="padding:6px 4px;">courir</td><td style="padding:6px 4px;">はしって</td><td style="padding:6px 4px;">はしらない</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">かえる（帰る）</td><td style="padding:6px 4px;">かえる</td><td style="padding:6px 4px;">rentrer</td><td style="padding:6px 4px;">かえって</td><td style="padding:6px 4px;">かえらない</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">へる（減る）</td><td style="padding:6px 4px;">へる</td><td style="padding:6px 4px;">diminuer</td><td style="padding:6px 4px;">へって</td><td style="padding:6px 4px;">へらない</td></tr>
+        <tr><td style="padding:6px 4px;color:#4dffcc;">きる（切る）</td><td style="padding:6px 4px;">きる</td><td style="padding:6px 4px;">couper</td><td style="padding:6px 4px;">きって</td><td style="padding:6px 4px;">きらない</td></tr>
       </table>
     </div>
   </div>
@@ -3137,50 +3199,78 @@ if ('serviceWorker' in navigator) {
   <!-- FICHE ADJECTIFS -->
   <div id="a-fiche" style="overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:20px;">
 
+    <!-- THÉORIE -->
+    <div style="background:rgba(77,255,204,0.06);border-radius:16px;padding:16px;border:1px solid rgba(77,255,204,0.2);">
+      <div style="font-size:13px;color:var(--text);line-height:1.7;">
+        <strong style="color:#4dffcc;">Il existe 2 types d'adjectifs en japonais.</strong><br>
+        • <strong style="color:#4d9fff;">Adjectifs en い（い形容詞・いけいようし）:</strong> se terminent toujours par い. Ils se conjuguent directement comme les verbes, sans avoir besoin de です/だ pour les formes négatives et passées.<br>
+        • <strong style="color:#4dffcc;">Adjectifs en な（な形容詞・なけいようし）:</strong> souvent d'origine chinoise ou étrangère. Ils ne se conjuguent pas seuls : on ajoute です/だ. Devant un nom, ils prennent な.<br><br>
+        <strong style="color:#ff9f4d;">Attention :</strong> いい（よい）est l'exception principale des adjectifs en い. Dans toutes les formes conjuguées, いい→よ. Ex : よくない、よかった.
+      </div>
+    </div>
+
+    <!-- ADJ い -->
     <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4d9fff;">
-      <h2 style="color:#4d9fff;margin-bottom:12px;font-size:16px;">🔵 Adjectifs en い (い-keiyoshi)</h2>
-      <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">Se terminent par <strong style="color:var(--text);">い</strong>. Se conjuguent directement, sans copule.</p>
+      <h2 style="color:#4d9fff;margin-bottom:8px;font-size:16px;">🔵 Adjectifs en い（い形容詞・いけいようし）</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Se terminent par い. Se conjuguent directement en remplaçant い. Pas besoin de です pour les formes courtes.</p>
       <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
           <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
-            <td style="padding:8px 4px;">Forme</td><td style="padding:8px 4px;">Règle</td><td style="padding:8px 4px;">大きい (grand)</td><td style="padding:8px 4px;">寒い (froid)</td>
+            <td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Règle</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">大きい（おおきい）grand</td><td style="padding:6px 4px;">寒い（さむい）froid</td><td style="padding:6px 4px;">難しい（むずかしい）difficile</td>
           </tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Présent affirm.</td><td style="padding:8px 4px;">～い</td><td style="padding:8px 4px;">大きい</td><td style="padding:8px 4px;">寒い</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Présent négatif</td><td style="padding:8px 4px;">～くない</td><td style="padding:8px 4px;">大きくない</td><td style="padding:8px 4px;">寒くない</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Passé affirm.</td><td style="padding:8px 4px;">～かった</td><td style="padding:8px 4px;">大きかった</td><td style="padding:8px 4px;">寒かった</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:8px 4px;">～くなかった</td><td style="padding:8px 4px;">大きくなかった</td><td style="padding:8px 4px;">寒くなかった</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Forme adverbe</td><td style="padding:8px 4px;">～く</td><td style="padding:8px 4px;">大きく</td><td style="padding:8px 4px;">寒く</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Forme て</td><td style="padding:8px 4px;">～くて</td><td style="padding:8px 4px;">大きくて</td><td style="padding:8px 4px;">寒くて</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent affirm.</td><td style="padding:6px 4px;">～い</td><td style="padding:6px 4px;color:var(--muted);">c'est grand</td><td style="padding:6px 4px;">大きい</td><td style="padding:6px 4px;">寒い</td><td style="padding:6px 4px;">難しい</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent poli</td><td style="padding:6px 4px;">～いです</td><td style="padding:6px 4px;color:var(--muted);">c'est grand (poli)</td><td style="padding:6px 4px;">大きいです</td><td style="padding:6px 4px;">寒いです</td><td style="padding:6px 4px;">難しいです</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent négatif</td><td style="padding:6px 4px;">～くない</td><td style="padding:6px 4px;color:var(--muted);">ce n'est pas grand</td><td style="padding:6px 4px;">大きくない</td><td style="padding:6px 4px;">寒くない</td><td style="padding:6px 4px;">難しくない</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:6px 4px;">～くないです</td><td style="padding:6px 4px;color:var(--muted);">ce n'est pas grand (poli)</td><td style="padding:6px 4px;">大きくないです</td><td style="padding:6px 4px;">寒くないです</td><td style="padding:6px 4px;">難しくないです</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé affirm.</td><td style="padding:6px 4px;">～かった</td><td style="padding:6px 4px;color:var(--muted);">c'était grand</td><td style="padding:6px 4px;">大きかった</td><td style="padding:6px 4px;">寒かった</td><td style="padding:6px 4px;">難しかった</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé poli</td><td style="padding:6px 4px;">～かったです</td><td style="padding:6px 4px;color:var(--muted);">c'était grand (poli)</td><td style="padding:6px 4px;">大きかったです</td><td style="padding:6px 4px;">寒かったです</td><td style="padding:6px 4px;">難しかったです</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:6px 4px;">～くなかった</td><td style="padding:6px 4px;color:var(--muted);">ce n'était pas grand</td><td style="padding:6px 4px;">大きくなかった</td><td style="padding:6px 4px;">寒くなかった</td><td style="padding:6px 4px;">難しくなかった</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Devant un nom</td><td style="padding:6px 4px;">～い + nom</td><td style="padding:6px 4px;color:var(--muted);">grand chat</td><td style="padding:6px 4px;">大きい猫（ねこ）</td><td style="padding:6px 4px;">寒い日（ひ）</td><td style="padding:6px 4px;">難しい本（ほん）</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme adverbe</td><td style="padding:6px 4px;">～く</td><td style="padding:6px 4px;color:var(--muted);">grandement</td><td style="padding:6px 4px;">大きく</td><td style="padding:6px 4px;">寒く</td><td style="padding:6px 4px;">難しく</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme て</td><td style="padding:6px 4px;">～くて</td><td style="padding:6px 4px;color:var(--muted);">grand et...</td><td style="padding:6px 4px;">大きくて</td><td style="padding:6px 4px;">寒くて</td><td style="padding:6px 4px;">難しくて</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Devenir</td><td style="padding:6px 4px;">～くなる</td><td style="padding:6px 4px;color:var(--muted);">devenir grand</td><td style="padding:6px 4px;">大きくなる</td><td style="padding:6px 4px;">寒くなる</td><td style="padding:6px 4px;">難しくなる</td></tr>
         </table>
       </div>
-      <div style="margin-top:12px;background:rgba(77,159,255,0.08);border-radius:8px;padding:12px;font-size:12px;color:var(--muted);">
-        ⚠️ <strong style="color:var(--text);">Exception :</strong> いい (bien) → négatif : よくない · passé : よかった
+      <div style="margin-top:12px;background:rgba(255,77,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+        ⚠️ <strong style="color:var(--text);">Exception いい（よい）:</strong> négatif → よくない · passé → よかった · adverbe → よく
       </div>
     </div>
 
+    <!-- ADJ な -->
     <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dffcc;">
-      <h2 style="color:#4dffcc;margin-bottom:12px;font-size:16px;">🟢 Adjectifs en な (な-keiyoshi)</h2>
-      <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">Suivis de <strong style="color:var(--text);">な</strong> devant un nom. Se conjuguent avec <strong style="color:var(--text);">です / だ</strong>.</p>
+      <h2 style="color:#4dffcc;margin-bottom:8px;font-size:16px;">🟢 Adjectifs en な（な形容詞・なけいようし）</h2>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Suivis de な devant un nom. Se conjuguent avec です/だ. Souvent d'origine sino-japonaise.</p>
       <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
           <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
-            <td style="padding:8px 4px;">Forme</td><td style="padding:8px 4px;">Règle</td><td style="padding:8px 4px;">静か (calme)</td><td style="padding:8px 4px;">便利 (pratique)</td>
+            <td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Règle</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">静か（しずか）calme</td><td style="padding:6px 4px;">便利（べんり）pratique</td><td style="padding:6px 4px;">元気（げんき）en forme</td>
           </tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Présent affirm.</td><td style="padding:8px 4px;">～です</td><td style="padding:8px 4px;">静かです</td><td style="padding:8px 4px;">便利です</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Présent négatif</td><td style="padding:8px 4px;">～じゃない</td><td style="padding:8px 4px;">静かじゃない</td><td style="padding:8px 4px;">便利じゃない</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Passé affirm.</td><td style="padding:8px 4px;">～でした</td><td style="padding:8px 4px;">静かでした</td><td style="padding:8px 4px;">便利でした</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:8px 4px;">～じゃなかった</td><td style="padding:8px 4px;">静かじゃなかった</td><td style="padding:8px 4px;">便利じゃなかった</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Devant un nom</td><td style="padding:8px 4px;">～な + nom</td><td style="padding:8px 4px;">静かな部屋</td><td style="padding:8px 4px;">便利なアプリ</td></tr>
-          <tr><td style="padding:8px 4px;color:#4dffcc;">Forme adverbe</td><td style="padding:8px 4px;">～に</td><td style="padding:8px 4px;">静かに</td><td style="padding:8px 4px;">便利に</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent poli</td><td style="padding:6px 4px;">～です</td><td style="padding:6px 4px;color:var(--muted);">c'est calme</td><td style="padding:6px 4px;">静かです</td><td style="padding:6px 4px;">便利です</td><td style="padding:6px 4px;">元気です</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Présent court</td><td style="padding:6px 4px;">～だ</td><td style="padding:6px 4px;color:var(--muted);">c'est calme (fam.)</td><td style="padding:6px 4px;">静かだ</td><td style="padding:6px 4px;">便利だ</td><td style="padding:6px 4px;">元気だ</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Négatif poli</td><td style="padding:6px 4px;">～じゃないです</td><td style="padding:6px 4px;color:var(--muted);">ce n'est pas calme</td><td style="padding:6px 4px;">静かじゃないです</td><td style="padding:6px 4px;">便利じゃないです</td><td style="padding:6px 4px;">元気じゃないです</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Négatif court</td><td style="padding:6px 4px;">～じゃない</td><td style="padding:6px 4px;color:var(--muted);">fam.</td><td style="padding:6px 4px;">静かじゃない</td><td style="padding:6px 4px;">便利じゃない</td><td style="padding:6px 4px;">元気じゃない</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé poli</td><td style="padding:6px 4px;">～でした</td><td style="padding:6px 4px;color:var(--muted);">c'était calme</td><td style="padding:6px 4px;">静かでした</td><td style="padding:6px 4px;">便利でした</td><td style="padding:6px 4px;">元気でした</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Passé négatif</td><td style="padding:6px 4px;">～じゃなかった</td><td style="padding:6px 4px;color:var(--muted);">ce n'était pas calme</td><td style="padding:6px 4px;">静かじゃなかった</td><td style="padding:6px 4px;">便利じゃなかった</td><td style="padding:6px 4px;">元気じゃなかった</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Devant un nom</td><td style="padding:6px 4px;">～な + nom</td><td style="padding:6px 4px;color:var(--muted);">une chambre calme</td><td style="padding:6px 4px;">静かな部屋（へや）</td><td style="padding:6px 4px;">便利なアプリ</td><td style="padding:6px 4px;">元気な子（こ）</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme adverbe</td><td style="padding:6px 4px;">～に</td><td style="padding:6px 4px;color:var(--muted);">calmement</td><td style="padding:6px 4px;">静かに</td><td style="padding:6px 4px;">便利に</td><td style="padding:6px 4px;">元気に</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Forme て</td><td style="padding:6px 4px;">～で</td><td style="padding:6px 4px;color:var(--muted);">calme et...</td><td style="padding:6px 4px;">静かで</td><td style="padding:6px 4px;">便利で</td><td style="padding:6px 4px;">元気で</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Devenir</td><td style="padding:6px 4px;">～になる</td><td style="padding:6px 4px;color:var(--muted);">devenir calme</td><td style="padding:6px 4px;">静かになる</td><td style="padding:6px 4px;">便利になる</td><td style="padding:6px 4px;">元気になる</td></tr>
         </table>
       </div>
     </div>
 
+    <!-- LISTE -->
     <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
-      <h2 style="color:#b44dff;margin-bottom:8px;font-size:16px;">📝 Adjectifs courants</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;">
-        <div style="background:rgba(77,159,255,0.08);padding:8px;border-radius:8px;"><span style="color:#4d9fff;">い :</span> 大きい · 小さい · 高い · 安い · 長い · 短い · 新しい · 古い · 良い · 悪い · 多い · 少ない · 速い · 遅い · 難しい · 易しい</div>
-        <div style="background:rgba(77,255,204,0.08);padding:8px;border-radius:8px;"><span style="color:#4dffcc;">な :</span> 静か · 賑やか · 便利 · 不便 · 好き · 嫌い · 上手 · 下手 · 有名 · 丁寧 · 親切 · 元気 · 暇 · 大切 · 簡単 · 複雑</div>
+      <h2 style="color:#b44dff;margin-bottom:12px;font-size:16px;">📝 Adjectifs courants à connaître</h2>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:12px;">
+        <div style="background:rgba(77,159,255,0.08);padding:10px;border-radius:8px;">
+          <div style="color:#4d9fff;font-weight:700;margin-bottom:6px;">Adjectifs en い :</div>
+          大きい（おおきい）grand · 小さい（ちいさい）petit · 高い（たかい）cher/haut · 安い（やすい）bon marché · 長い（ながい）long · 短い（みじかい）court · 新しい（あたらしい）nouveau · 古い（ふるい）vieux · 良い/いい（よい/いい）bon · 悪い（わるい）mauvais · 多い（おおい）nombreux · 少ない（すくない）peu · 速い（はやい）rapide · 遅い（おそい）lent · 難しい（むずかしい）difficile · 易しい（やさしい）facile · 楽しい（たのしい）amusant · 悲しい（かなしい）triste · 嬉しい（うれしい）content · 怖い（こわい）effrayant · 暑い（あつい）chaud · 寒い（さむい）froid · 暖かい（あたたかい）tiède · 涼しい（すずしい）frais
+        </div>
+        <div style="background:rgba(77,255,204,0.08);padding:10px;border-radius:8px;">
+          <div style="color:#4dffcc;font-weight:700;margin-bottom:6px;">Adjectifs en な :</div>
+          静か（しずか）calme · 賑やか（にぎやか）animé · 便利（べんり）pratique · 不便（ふべん）peu pratique · 好き（すき）aimé · 嫌い（きらい）détesté · 上手（じょうず）habile · 下手（へた）maladroit · 有名（ゆうめい）célèbre · 丁寧（ていねい）poli · 親切（しんせつ）gentil · 元気（げんき）en forme · 暇（ひま）libre · 大切（たいせつ）important · 簡単（かんたん）simple · 複雑（ふくざつ）complexe · 素敵（すてき）magnifique · 大変（たいへん）difficile/pénible · 大丈夫（だいじょうぶ）ça va
+        </div>
       </div>
     </div>
   </div>
@@ -3230,98 +3320,194 @@ function showATab(tab) {
 const VERBS = [
   // Ichidan
   { dict:'食べる', reading:'たべる', meaning:'manger', type:'ichidan', forms:{
-    'Présent poli':'食べます','Négatif poli':'食べません','Passé poli':'食べました','Forme て':'食べて','Potentiel':'食べられる'
+    'Présent poli':'食べます','Négatif poli':'食べません','Passé poli':'食べました','Passé négatif':'食べませんでした',
+    'Forme て':'食べて','En train de':'食べている','Potentiel':'食べられる','Passif':'食べられる','Causatif':'食べさせる',
+    'たことがある':'食べたことがある','〜すぎる':'食べすぎる','〜やすい':'食べやすい','〜にくい':'食べにくい',
+    'ながら':'食べながら','前に':'食べる前に','後で':'食べた後で','たばかり':'食べたばかり'
   }},
   { dict:'見る', reading:'みる', meaning:'voir', type:'ichidan', forms:{
-    'Présent poli':'見ます','Négatif poli':'見ません','Passé poli':'見ました','Forme て':'見て','Potentiel':'見られる'
+    'Présent poli':'見ます','Négatif poli':'見ません','Passé poli':'見ました','Passé négatif':'見ませんでした',
+    'Forme て':'見て','En train de':'見ている','Potentiel':'見られる','Passif':'見られる','Causatif':'見させる',
+    'たことがある':'見たことがある','〜すぎる':'見すぎる','〜やすい':'見やすい','〜にくい':'見にくい',
+    'ながら':'見ながら','前に':'見る前に','後で':'見た後で'
   }},
   { dict:'起きる', reading:'おきる', meaning:'se lever', type:'ichidan', forms:{
-    'Présent poli':'起きます','Négatif poli':'起きません','Passé poli':'起きました','Forme て':'起きて','Potentiel':'起きられる'
+    'Présent poli':'起きます','Négatif poli':'起きません','Passé poli':'起きました','Forme て':'起きて',
+    'Potentiel':'起きられる','たことがある':'起きたことがある','前に':'起きる前に','後で':'起きた後で'
   }},
   { dict:'寝る', reading:'ねる', meaning:'dormir', type:'ichidan', forms:{
-    'Présent poli':'寝ます','Négatif poli':'寝ません','Passé poli':'寝ました','Forme て':'寝て','Potentiel':'寝られる'
+    'Présent poli':'寝ます','Négatif poli':'寝ません','Passé poli':'寝ました','Forme て':'寝て',
+    'Potentiel':'寝られる','ながら':'寝ながら','前に':'寝る前に','〜すぎる':'寝すぎる'
   }},
   { dict:'教える', reading:'おしえる', meaning:'enseigner', type:'ichidan', forms:{
-    'Présent poli':'教えます','Négatif poli':'教えません','Passé poli':'教えました','Forme て':'教えて','Potentiel':'教えられる'
+    'Présent poli':'教えます','Négatif poli':'教えません','Passé poli':'教えました','Forme て':'教えて',
+    'Potentiel':'教えられる','Causatif':'教えさせる','〜やすい':'教えやすい','たことがある':'教えたことがある'
   }},
   { dict:'出かける', reading:'でかける', meaning:'sortir', type:'ichidan', forms:{
-    'Présent poli':'出かけます','Négatif poli':'出かけません','Passé poli':'出かけました','Forme て':'出かけて','Potentiel':'出かけられる'
+    'Présent poli':'出かけます','Négatif poli':'出かけません','Passé poli':'出かけました','Forme て':'出かけて',
+    'Potentiel':'出かけられる','前に':'出かける前に','後で':'出かけた後で','たばかり':'出かけたばかり'
+  }},
+  { dict:'開ける', reading:'あける', meaning:'ouvrir', type:'ichidan', forms:{
+    'Présent poli':'開けます','Négatif poli':'開けません','Passé poli':'開けました','Forme て':'開けて',
+    'En train de':'開けている','Potentiel':'開けられる','Passif':'開けられる','〜やすい':'開けやすい'
+  }},
+  { dict:'閉める', reading:'しめる', meaning:'fermer', type:'ichidan', forms:{
+    'Présent poli':'閉めます','Négatif poli':'閉めません','Passé poli':'閉めました','Forme て':'閉めて',
+    'Potentiel':'閉められる','〜にくい':'閉めにくい','ながら':'閉めながら'
   }},
   // Godan
   { dict:'書く', reading:'かく', meaning:'écrire', type:'godan', forms:{
-    'Présent poli':'書きます','Négatif poli':'書きません','Passé poli':'書きました','Forme て':'書いて','Potentiel':'書ける'
+    'Présent poli':'書きます','Négatif poli':'書きません','Passé poli':'書きました','Passé négatif':'書きませんでした',
+    'Forme て':'書いて','Forme ない':'書かない','En train de':'書いている','Potentiel':'書ける',
+    'Passif':'書かれる','Causatif':'書かせる','たことがある':'書いたことがある',
+    '〜すぎる':'書きすぎる','〜やすい':'書きやすい','〜にくい':'書きにくい',
+    'ながら':'書きながら','前に':'書く前に','後で':'書いた後で','たばかり':'書いたばかり'
   }},
   { dict:'飲む', reading:'のむ', meaning:'boire', type:'godan', forms:{
-    'Présent poli':'飲みます','Négatif poli':'飲みません','Passé poli':'飲みました','Forme て':'飲んで','Potentiel':'飲める'
+    'Présent poli':'飲みます','Négatif poli':'飲みません','Passé poli':'飲みました','Passé négatif':'飲みませんでした',
+    'Forme て':'飲んで','Forme ない':'飲まない','Potentiel':'飲める','Passif':'飲まれる','Causatif':'飲ませる',
+    'たことがある':'飲んだことがある','〜すぎる':'飲みすぎる','ながら':'飲みながら','前に':'飲む前に','後で':'飲んだ後で'
   }},
   { dict:'話す', reading:'はなす', meaning:'parler', type:'godan', forms:{
-    'Présent poli':'話します','Négatif poli':'話しません','Passé poli':'話しました','Forme て':'話して','Potentiel':'話せる'
+    'Présent poli':'話します','Négatif poli':'話しません','Passé poli':'話しました','Passé négatif':'話しませんでした',
+    'Forme て':'話して','Forme ない':'話さない','Potentiel':'話せる','Passif':'話される','Causatif':'話させる',
+    'たことがある':'話したことがある','ながら':'話しながら','〜やすい':'話しやすい','〜にくい':'話しにくい'
   }},
   { dict:'聞く', reading:'きく', meaning:'écouter', type:'godan', forms:{
-    'Présent poli':'聞きます','Négatif poli':'聞きません','Passé poli':'聞きました','Forme て':'聞いて','Potentiel':'聞ける'
+    'Présent poli':'聞きます','Négatif poli':'聞きません','Passé poli':'聞きました','Forme て':'聞いて',
+    'Potentiel':'聞ける','Passif':'聞かれる','ながら':'聞きながら','たことがある':'聞いたことがある',
+    '〜やすい':'聞きやすい','〜にくい':'聞きにくい'
   }},
   { dict:'行く', reading:'いく', meaning:'aller', type:'godan', forms:{
-    'Présent poli':'行きます','Négatif poli':'行きません','Passé poli':'行きました','Forme て':'行って','Potentiel':'行ける'
+    'Présent poli':'行きます','Négatif poli':'行きません','Passé poli':'行きました','Passé négatif':'行きませんでした',
+    'Forme て':'行って','Forme ない':'行かない','Potentiel':'行ける','Passif':'行かれる',
+    'たことがある':'行ったことがある','前に':'行く前に','後で':'行った後で','たばかり':'行ったばかり'
   }},
   { dict:'来る', reading:'くる', meaning:'venir', type:'irrégulier', forms:{
-    'Présent poli':'きます','Négatif poli':'きません','Passé poli':'きました','Forme て':'きて','Potentiel':'こられる'
+    'Présent poli':'きます','Négatif poli':'きません','Passé poli':'きました','Passé négatif':'きませんでした',
+    'Forme て':'きて','Forme ない':'こない','Potentiel':'こられる','Causatif':'こさせる',
+    'たことがある':'来たことがある','たばかり':'来たばかり','前に':'来る前に','後で':'来た後で'
   }},
   { dict:'する', reading:'する', meaning:'faire', type:'irrégulier', forms:{
-    'Présent poli':'します','Négatif poli':'しません','Passé poli':'しました','Forme て':'して','Potentiel':'できる'
+    'Présent poli':'します','Négatif poli':'しません','Passé poli':'しました','Passé négatif':'しませんでした',
+    'Forme て':'して','Forme ない':'しない','Potentiel':'できる','Passif':'される','Causatif':'させる',
+    'たことがある':'したことがある','〜すぎる':'しすぎる','ながら':'しながら','前に':'する前に','後で':'した後で'
   }},
   { dict:'読む', reading:'よむ', meaning:'lire', type:'godan', forms:{
-    'Présent poli':'読みます','Négatif poli':'読みません','Passé poli':'読みました','Forme て':'読んで','Potentiel':'読める'
+    'Présent poli':'読みます','Négatif poli':'読みません','Passé poli':'読みました','Forme て':'読んで',
+    'Potentiel':'読める','Passif':'読まれる','たことがある':'読んだことがある',
+    '〜やすい':'読みやすい','〜にくい':'読みにくい','ながら':'読みながら'
   }},
   { dict:'買う', reading:'かう', meaning:'acheter', type:'godan', forms:{
-    'Présent poli':'買います','Négatif poli':'買いません','Passé poli':'買いました','Forme て':'買って','Potentiel':'買える'
+    'Présent poli':'買います','Négatif poli':'買いません','Passé poli':'買いました','Forme て':'買って',
+    'Potentiel':'買える','たことがある':'買ったことがある','たばかり':'買ったばかり','前に':'買う前に'
   }},
   { dict:'帰る', reading:'かえる', meaning:'rentrer', type:'godan', forms:{
-    'Présent poli':'帰ります','Négatif poli':'帰りません','Passé poli':'帰りました','Forme て':'帰って','Potentiel':'帰れる'
+    'Présent poli':'帰ります','Négatif poli':'帰りません','Passé poli':'帰りました','Forme て':'帰って',
+    'Potentiel':'帰れる','たことがある':'帰ったことがある','後で':'帰った後で','たばかり':'帰ったばかり'
+  }},
+  { dict:'走る', reading:'はしる', meaning:'courir', type:'godan-faux-ichidan', forms:{
+    'Présent poli':'走ります','Négatif poli':'走りません','Passé poli':'走りました','Forme て':'走って',
+    'Forme ない':'走らない','Potentiel':'走れる','〜すぎる':'走りすぎる','ながら':'走りながら'
+  }},
+  { dict:'入る', reading:'はいる', meaning:'entrer', type:'godan-faux-ichidan', forms:{
+    'Présent poli':'入ります','Négatif poli':'入りません','Passé poli':'入りました','Forme て':'入って',
+    'Forme ない':'入らない','Potentiel':'入れる','たことがある':'入ったことがある','前に':'入る前に'
+  }},
+  { dict:'始める', reading:'はじめる', meaning:'commencer (transitif)', type:'ichidan', forms:{
+    'Présent poli':'始めます','Négatif poli':'始めません','Passé poli':'始めました','Forme て':'始めて',
+    'Potentiel':'始められる','Causatif':'始めさせる','前に':'始める前に','後で':'始めた後で'
+  }},
+  { dict:'話す', reading:'はなす', meaning:'parler', type:'godan', forms:{
+    'Présent poli':'話します','Forme て':'話して','Potentiel':'話せる',
+    'たことがある':'話したことがある','ながら':'話しながら'
   }},
 ];
 
 const ADJECTIFS = [
   { dict:'大きい', reading:'おおきい', meaning:'grand', type:'i', forms:{
-    'Négatif':'大きくない','Passé':'大きかった','Passé négatif':'大きくなかった','Adverbe':'大きく','Forme て':'大きくて'
+    'Négatif':'大きくない','Passé':'大きかった','Passé négatif':'大きくなかった',
+    'Adverbe':'大きく','Forme て':'大きくて','Devenir':'大きくなる','すぎる':'大きすぎる'
   }},
   { dict:'小さい', reading:'ちいさい', meaning:'petit', type:'i', forms:{
-    'Négatif':'小さくない','Passé':'小さかった','Passé négatif':'小さくなかった','Adverbe':'小さく','Forme て':'小さくて'
+    'Négatif':'小さくない','Passé':'小さかった','Passé négatif':'小さくなかった',
+    'Adverbe':'小さく','Forme て':'小さくて','Devenir':'小さくなる','すぎる':'小さすぎる'
   }},
   { dict:'高い', reading:'たかい', meaning:'cher / haut', type:'i', forms:{
-    'Négatif':'高くない','Passé':'高かった','Passé négatif':'高くなかった','Adverbe':'高く','Forme て':'高くて'
+    'Négatif':'高くない','Passé':'高かった','Passé négatif':'高くなかった',
+    'Adverbe':'高く','Forme て':'高くて','Devenir':'高くなる','すぎる':'高すぎる'
   }},
   { dict:'安い', reading:'やすい', meaning:'bon marché', type:'i', forms:{
-    'Négatif':'安くない','Passé':'安かった','Passé négatif':'安くなかった','Adverbe':'安く','Forme て':'安くて'
+    'Négatif':'安くない','Passé':'安かった','Passé négatif':'安くなかった',
+    'Adverbe':'安く','Forme て':'安くて','Devenir':'安くなる','すぎる':'安すぎる'
   }},
   { dict:'難しい', reading:'むずかしい', meaning:'difficile', type:'i', forms:{
-    'Négatif':'難しくない','Passé':'難しかった','Passé négatif':'難しくなかった','Adverbe':'難しく','Forme て':'難しくて'
+    'Négatif':'難しくない','Passé':'難しかった','Passé négatif':'難しくなかった',
+    'Adverbe':'難しく','Forme て':'難しくて','Devenir':'難しくなる','すぎる':'難しすぎる'
   }},
   { dict:'いい', reading:'いい', meaning:'bien / bon', type:'i-exception', forms:{
-    'Négatif':'よくない','Passé':'よかった','Passé négatif':'よくなかった','Adverbe':'よく','Forme て':'よくて'
+    'Négatif':'よくない','Passé':'よかった','Passé négatif':'よくなかった',
+    'Adverbe':'よく','Forme て':'よくて','Devenir':'よくなる','そうだ':'よさそう'
   }},
   { dict:'寒い', reading:'さむい', meaning:'froid', type:'i', forms:{
-    'Négatif':'寒くない','Passé':'寒かった','Passé négatif':'寒くなかった','Adverbe':'寒く','Forme て':'寒くて'
+    'Négatif':'寒くない','Passé':'寒かった','Passé négatif':'寒くなかった',
+    'Adverbe':'寒く','Forme て':'寒くて','Devenir':'寒くなる','そうだ':'寒そう'
   }},
   { dict:'暑い', reading:'あつい', meaning:'chaud', type:'i', forms:{
-    'Négatif':'暑くない','Passé':'暑かった','Passé négatif':'暑くなかった','Adverbe':'暑く','Forme て':'暑くて'
+    'Négatif':'暑くない','Passé':'暑かった','Passé négatif':'暑くなかった',
+    'Adverbe':'暑く','Forme て':'暑くて','Devenir':'暑くなる','そうだ':'暑そう'
+  }},
+  { dict:'楽しい', reading:'たのしい', meaning:'amusant', type:'i', forms:{
+    'Négatif':'楽しくない','Passé':'楽しかった','Passé négatif':'楽しくなかった',
+    'Adverbe':'楽しく','Forme て':'楽しくて','Devenir':'楽しくなる','そうだ':'楽しそう'
+  }},
+  { dict:'忙しい', reading:'いそがしい', meaning:'occupé', type:'i', forms:{
+    'Négatif':'忙しくない','Passé':'忙しかった','Passé négatif':'忙しくなかった',
+    'Adverbe':'忙しく','Forme て':'忙しくて','すぎる':'忙しすぎる'
   }},
   { dict:'静か', reading:'しずか', meaning:'calme', type:'na', forms:{
-    'Présent poli':'静かです','Négatif':'静かじゃない','Passé':'静かでした','Passé négatif':'静かじゃなかった','Adverbe':'静かに','Devant un nom':'静かな'
+    'Présent poli':'静かです','Négatif':'静かじゃない','Passé':'静かでした',
+    'Passé négatif':'静かじゃなかった','Adverbe':'静かに','Devant un nom':'静かな',
+    'Forme て':'静かで','Devenir':'静かになる','そうだ':'静かそう'
   }},
   { dict:'便利', reading:'べんり', meaning:'pratique', type:'na', forms:{
-    'Présent poli':'便利です','Négatif':'便利じゃない','Passé':'便利でした','Passé négatif':'便利じゃなかった','Adverbe':'便利に','Devant un nom':'便利な'
+    'Présent poli':'便利です','Négatif':'便利じゃない','Passé':'便利でした',
+    'Passé négatif':'便利じゃなかった','Adverbe':'便利に','Devant un nom':'便利な',
+    'Forme て':'便利で','Devenir':'便利になる'
   }},
   { dict:'好き', reading:'すき', meaning:'aimé / apprécié', type:'na', forms:{
-    'Présent poli':'好きです','Négatif':'好きじゃない','Passé':'好きでした','Passé négatif':'好きじゃなかった','Adverbe':'好きに','Devant un nom':'好きな'
+    'Présent poli':'好きです','Négatif':'好きじゃない','Passé':'好きでした',
+    'Passé négatif':'好きじゃなかった','Adverbe':'好きに','Devant un nom':'好きな',
+    'Devenir':'好きになる'
   }},
   { dict:'上手', reading:'じょうず', meaning:'habile', type:'na', forms:{
-    'Présent poli':'上手です','Négatif':'上手じゃない','Passé':'上手でした','Passé négatif':'上手じゃなかった','Adverbe':'上手に','Devant un nom':'上手な'
+    'Présent poli':'上手です','Négatif':'上手じゃない','Passé':'上手でした',
+    'Passé négatif':'上手じゃなかった','Adverbe':'上手に','Devant un nom':'上手な',
+    'Devenir':'上手になる'
   }},
   { dict:'有名', reading:'ゆうめい', meaning:'célèbre', type:'na', forms:{
-    'Présent poli':'有名です','Négatif':'有名じゃない','Passé':'有名でした','Passé négatif':'有名じゃなかった','Adverbe':'有名に','Devant un nom':'有名な'
+    'Présent poli':'有名です','Négatif':'有名じゃない','Passé':'有名でした',
+    'Passé négatif':'有名じゃなかった','Adverbe':'有名に','Devant un nom':'有名な',
+    'Forme て':'有名で'
   }},
   { dict:'元気', reading:'げんき', meaning:'en forme', type:'na', forms:{
-    'Présent poli':'元気です','Négatif':'元気じゃない','Passé':'元気でした','Passé négatif':'元気じゃなかった','Adverbe':'元気に','Devant un nom':'元気な'
+    'Présent poli':'元気です','Négatif':'元気じゃない','Passé':'元気でした',
+    'Passé négatif':'元気じゃなかった','Adverbe':'元気に','Devant un nom':'元気な',
+    'Forme て':'元気で','Devenir':'元気になる','そうだ':'元気そう'
+  }},
+  { dict:'大変', reading:'たいへん', meaning:'difficile / pénible', type:'na', forms:{
+    'Présent poli':'大変です','Négatif':'大変じゃない','Passé':'大変でした',
+    'Passé négatif':'大変じゃなかった','Adverbe':'大変に','Devant un nom':'大変な',
+    'そうだ':'大変そう'
+  }},
+  { dict:'大丈夫', reading:'だいじょうぶ', meaning:'ça va / pas de problème', type:'na', forms:{
+    'Présent poli':'大丈夫です','Négatif':'大丈夫じゃない','Passé':'大丈夫でした',
+    'Devant un nom':'大丈夫な'
+  }},
+  { dict:'簡単', reading:'かんたん', meaning:'simple / facile', type:'na', forms:{
+    'Présent poli':'簡単です','Négatif':'簡単じゃない','Passé':'簡単でした',
+    'Passé négatif':'簡単じゃなかった','Adverbe':'簡単に','Devant un nom':'簡単な',
+    'Devenir':'簡単になる','そうだ':'簡単そう'
   }},
 ];
 
@@ -3438,6 +3624,904 @@ function shuffle(arr) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+</script>
+
+<!-- GRAMMAIRE JAPONAISE -->
+<div id="grammar-jp" class="screen" style="flex-direction:column;padding:0;">
+  <div style="position:sticky;top:0;z-index:10;background:var(--bg);padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+    <button class="back-btn" style="position:static;margin:0;" onclick="showScreen('home')">←</button>
+    <span style="font-size:18px;font-weight:700;">Grammaire</span>
+  </div>
+
+  <!-- TABS GRAMMAIRE -->
+  <div style="display:flex;overflow-x:auto;border-bottom:1px solid var(--border);scrollbar-width:none;">
+    <button class="gtab-btn active" onclick="showGTab(0)" data-idx="0" style="flex-shrink:0;padding:12px 16px;background:rgba(180,77,255,0.15);color:#b44dff;border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid #b44dff;white-space:nowrap;">⏱ Temps</button>
+    <button class="gtab-btn" onclick="showGTab(1)" data-idx="1" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">🔢 Compteurs</button>
+    <button class="gtab-btn" onclick="showGTab(2)" data-idx="2" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">📝 Formes</button>
+    <button class="gtab-btn" onclick="showGTab(3)" data-idx="3" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">💬 Discours</button>
+    <button class="gtab-btn" onclick="showGTab(4)" data-idx="4" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">⚡ Potentiel</button>
+    <button class="gtab-btn" onclick="showGTab(5)" data-idx="5" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">🔄 Passif</button>
+    <button class="gtab-btn" onclick="showGTab(6)" data-idx="6" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">🌿 Conditionnel</button>
+    <button class="gtab-btn" onclick="showGTab(7)" data-idx="7" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">🎯 Permission</button>
+    <button class="gtab-btn" onclick="showGTab(8)" data-idx="8" style="flex-shrink:0;padding:12px 16px;background:var(--surface);color:var(--muted);border:none;font-size:13px;font-weight:700;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;">🎓 Quiz</button>
+  </div>
+
+  <div style="overflow-y:auto;flex:1;" id="gtab-content">
+
+    <!-- TAB 0 : TEMPS -->
+    <div id="gtab-0" style="padding:20px;display:flex;flex-direction:column;gap:16px;">
+
+      <!-- THÉORIE -->
+      <div style="background:rgba(180,77,255,0.06);border-radius:16px;padding:16px;border:1px solid rgba(180,77,255,0.2);">
+        <div style="font-size:13px;color:var(--text);line-height:1.7;">
+          <strong style="color:#b44dff;">Le japonais n'a pas de temps au sens strict.</strong> Il distingue surtout l'aspect (accompli / non accompli) et la politesse. Le contexte et des marqueurs temporels précis comme 昨日（きのう）、来週（らいしゅう）、もう permettent de situer dans le temps.<br><br>
+          Pour mesurer la durée, on utilise <strong style="color:#4dffcc;">間（かん）</strong> qu'on ajoute après les unités de temps. Pour les points précis dans le temps (dates, heures), on utilise <strong style="color:#4dffcc;">に</strong>.
+        </div>
+      </div>
+
+      <!-- MARQUEURS DE DURÉE -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+        <h2 style="color:#b44dff;margin-bottom:12px;font-size:15px;">⏱ Marqueurs de durée</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Expression</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">前（まえ）</td><td style="padding:6px 4px;">まえ</td><td style="padding:6px 4px;">il y a</td><td style="padding:6px 4px;">二年前に行きました</td><td style="padding:6px 4px;">Je suis allé il y a 2 ans</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">後（ご／あと）</td><td style="padding:6px 4px;">ご/あと</td><td style="padding:6px 4px;">dans / après</td><td style="padding:6px 4px;">十分後に来ます</td><td style="padding:6px 4px;">Il vient dans 10 minutes</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">半（はん）</td><td style="padding:6px 4px;">はん</td><td style="padding:6px 4px;">et demi</td><td style="padding:6px 4px;">一時間半（いちじかんはん）</td><td style="padding:6px 4px;">1h30</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">間（かん）</td><td style="padding:6px 4px;">かん</td><td style="padding:6px 4px;">pendant (durée)</td><td style="padding:6px 4px;">三日間（みっかかん）</td><td style="padding:6px 4px;">pendant 3 jours</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">ごろ</td><td style="padding:6px 4px;">ごろ</td><td style="padding:6px 4px;">vers, aux alentours de</td><td style="padding:6px 4px;">三時ごろ来ます</td><td style="padding:6px 4px;">Il vient vers 15h</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">ぐらい／くらい</td><td style="padding:6px 4px;">ぐらい</td><td style="padding:6px 4px;">environ, à peu près</td><td style="padding:6px 4px;">二時間ぐらいかかります</td><td style="padding:6px 4px;">Ça prend environ 2h</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">から〜まで</td><td style="padding:6px 4px;">から〜まで</td><td style="padding:6px 4px;">de... à...</td><td style="padding:6px 4px;">月曜から金曜まで</td><td style="padding:6px 4px;">Du lundi au vendredi</td></tr>
+        </table>
+        <div style="margin-top:12px;background:rgba(180,77,255,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">間（かん）s'ajoute après :</strong> 一週間（いっしゅうかん）、一ヶ月（いっかげつ）、三年間（さんねんかん）<br>
+          ⚠️ 半分（はんぶん）= la moitié (d'une chose) ≠ 半（はん）= et demi (pour les heures)
+        </div>
+      </div>
+
+      <!-- MARQUEURS DE FRÉQUENCE -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dff4d;">
+        <h2 style="color:#4dff4d;margin-bottom:12px;font-size:15px;">🔁 Fréquence et répétition</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Expression</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">毎日（まいにち）</td><td style="padding:6px 4px;">まいにち</td><td style="padding:6px 4px;">tous les jours</td><td style="padding:6px 4px;">毎日勉強します</td><td style="padding:6px 4px;">J'étudie tous les jours</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">毎週（まいしゅう）</td><td style="padding:6px 4px;">まいしゅう</td><td style="padding:6px 4px;">toutes les semaines</td><td style="padding:6px 4px;">毎週月曜日に行く</td><td style="padding:6px 4px;">Je vais tous les lundis</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">時間に〜回（かい）</td><td style="padding:6px 4px;">〜かい</td><td style="padding:6px 4px;">X fois par période</td><td style="padding:6px 4px;">週三回（しゅうさんかい）</td><td style="padding:6px 4px;">3 fois par semaine</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">いつも</td><td style="padding:6px 4px;">いつも</td><td style="padding:6px 4px;">toujours</td><td style="padding:6px 4px;">いつも遅れます</td><td style="padding:6px 4px;">Il est toujours en retard</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">たまに</td><td style="padding:6px 4px;">たまに</td><td style="padding:6px 4px;">de temps en temps</td><td style="padding:6px 4px;">たまに映画を見ます</td><td style="padding:6px 4px;">Je regarde des films de temps en temps</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">あまり〜ない</td><td style="padding:6px 4px;">あまり</td><td style="padding:6px 4px;">pas souvent / pas vraiment</td><td style="padding:6px 4px;">あまり食べません</td><td style="padding:6px 4px;">Je ne mange pas beaucoup</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">全然〜ない（ぜんぜん）</td><td style="padding:6px 4px;">ぜんぜん</td><td style="padding:6px 4px;">pas du tout</td><td style="padding:6px 4px;">全然分かりません</td><td style="padding:6px 4px;">Je ne comprends pas du tout</td></tr>
+        </table>
+      </div>
+
+      <!-- MARQUEURS TEMPORELS -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4d9fff;">
+        <h2 style="color:#4d9fff;margin-bottom:12px;font-size:15px;">📅 Repères dans le temps</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Mot</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Mot</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">昨日</td><td style="padding:6px 4px;">きのう</td><td style="padding:6px 4px;">hier</td><td style="padding:6px 4px;color:#4dffcc;">明日</td><td style="padding:6px 4px;">あした/あす</td><td style="padding:6px 4px;">demain</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">今日</td><td style="padding:6px 4px;">きょう</td><td style="padding:6px 4px;">aujourd'hui</td><td style="padding:6px 4px;color:#4dffcc;">翌日</td><td style="padding:6px 4px;">よくじつ</td><td style="padding:6px 4px;">le lendemain (écrit)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">先週</td><td style="padding:6px 4px;">せんしゅう</td><td style="padding:6px 4px;">la semaine dernière</td><td style="padding:6px 4px;color:#4dffcc;">来週</td><td style="padding:6px 4px;">らいしゅう</td><td style="padding:6px 4px;">la semaine prochaine</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">先月</td><td style="padding:6px 4px;">せんげつ</td><td style="padding:6px 4px;">le mois dernier</td><td style="padding:6px 4px;color:#4dffcc;">来月</td><td style="padding:6px 4px;">らいげつ</td><td style="padding:6px 4px;">le mois prochain</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">去年</td><td style="padding:6px 4px;">きょねん</td><td style="padding:6px 4px;">l'année dernière</td><td style="padding:6px 4px;color:#4dffcc;">来年</td><td style="padding:6px 4px;">らいねん</td><td style="padding:6px 4px;">l'année prochaine</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">朝</td><td style="padding:6px 4px;">あさ</td><td style="padding:6px 4px;">le matin</td><td style="padding:6px 4px;color:#4dffcc;">夜</td><td style="padding:6px 4px;">よる</td><td style="padding:6px 4px;">le soir / la nuit</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">今朝</td><td style="padding:6px 4px;">けさ</td><td style="padding:6px 4px;">ce matin</td><td style="padding:6px 4px;color:#4dffcc;">今夜</td><td style="padding:6px 4px;">こんや</td><td style="padding:6px 4px;">ce soir</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">さいきん</td><td style="padding:6px 4px;">さいきん</td><td style="padding:6px 4px;">récemment</td><td style="padding:6px 4px;color:#4dffcc;">もうすぐ</td><td style="padding:6px 4px;">もうすぐ</td><td style="padding:6px 4px;">bientôt</td></tr>
+        </table>
+      </div>
+
+      <!-- TOKI -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:15px;">📍 とき（時）— quand / au moment où</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">とき relie deux phrases. La forme du verbe avant とき change le sens : passé → l'action est déjà faite quand la 2e commence. Présent → les deux sont simultanées ou habituelles.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Type</td><td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Verbe passé</td><td style="padding:6px 4px;">〜たとき</td><td style="padding:6px 4px;">quand j'ai fait (accompli)</td><td style="padding:6px 4px;">食べたとき眠くなった</td><td style="padding:6px 4px;">Quand j'ai mangé, j'ai eu sommeil</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Verbe présent</td><td style="padding:6px 4px;">〜るとき</td><td style="padding:6px 4px;">quand je fais (habituel)</td><td style="padding:6px 4px;">食べるとき手を洗います</td><td style="padding:6px 4px;">Quand je mange, je me lave les mains</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Nom</td><td style="padding:6px 4px;">〜のとき</td><td style="padding:6px 4px;">à l'époque de</td><td style="padding:6px 4px;">子供のとき好きでした</td><td style="padding:6px 4px;">Quand j'étais enfant, j'aimais ça</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">い-adj</td><td style="padding:6px 4px;">〜いとき</td><td style="padding:6px 4px;">quand c'est...</td><td style="padding:6px 4px;">寒いときコートを着ます</td><td style="padding:6px 4px;">Quand il fait froid, je mets un manteau</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">な-adj</td><td style="padding:6px 4px;">〜なとき</td><td style="padding:6px 4px;">quand c'est...</td><td style="padding:6px 4px;">暇なとき本を読みます</td><td style="padding:6px 4px;">Quand j'ai du temps libre, je lis</td></tr>
+        </table>
+      </div>
+
+      <!-- AUJOURD'HUI FROM / SINCE -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dffcc;">
+        <h2 style="color:#4dffcc;margin-bottom:8px;font-size:15px;">🚀 今から vs これから — à partir de maintenant</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Expression</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Contexte</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">これから</td><td style="padding:6px 4px;">これから</td><td style="padding:6px 4px;">à partir de maintenant (futur)</td><td style="padding:6px 4px;">これから勉強します → Je vais étudier maintenant</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">今から（いまから）</td><td style="padding:6px 4px;">いまから</td><td style="padding:6px 4px;">à partir de maintenant (futur + passé)</td><td style="padding:6px 4px;">今から二年前 → Il y a 2 ans (depuis maintenant)</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(77,255,204,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          ⚠️ <strong style="color:var(--text);">Seul 今から（いまから）</strong> peut s'utiliser pour le passé. これから est uniquement pour le futur.
+        </div>
+      </div>
+
+      <!-- 以上 以下 -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff4d4d;">
+        <h2 style="color:#ff4d4d;margin-bottom:8px;font-size:15px;">📊 以上・以下・以内 — limites</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Ces expressions s'ajoutent directement après un nombre et sont très utilisées dans des contextes formels ou pour des conditions.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Expression</td><td style="padding:6px 4px;">Lecture</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">以上（いじょう）</td><td style="padding:6px 4px;">いじょう</td><td style="padding:6px 4px;">X ou plus / au moins X</td><td style="padding:6px 4px;">五年以上働いています</td><td style="padding:6px 4px;">Je travaille depuis au moins 5 ans</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">以下（いか）</td><td style="padding:6px 4px;">いか</td><td style="padding:6px 4px;">X ou moins / au maximum X</td><td style="padding:6px 4px;">二千円以下で買えます</td><td style="padding:6px 4px;">On peut acheter pour 2000¥ max</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">以内（いない）</td><td style="padding:6px 4px;">いない</td><td style="padding:6px 4px;">dans la limite de / sous X</td><td style="padding:6px 4px;">三日以内に返事します</td><td style="padding:6px 4px;">Je répondrai dans les 3 jours</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">未満（みまん）</td><td style="padding:6px 4px;">みまん</td><td style="padding:6px 4px;">moins de X (exclu)</td><td style="padding:6px 4px;">十八歳未満は禁止</td><td style="padding:6px 4px;">Interdit aux moins de 18 ans</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">超（ちょう）</td><td style="padding:6px 4px;">ちょう</td><td style="padding:6px 4px;">plus de X (exclu)</td><td style="padding:6px 4px;">百人超の参加者</td><td style="padding:6px 4px;">Plus de 100 participants</td></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- TAB 1 : COMPTEURS -->
+    <div id="gtab-1" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dff4d;">
+        <h2 style="color:#4dff4d;margin-bottom:12px;font-size:15px;">🔢 Compteurs principaux</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Compteur</td><td style="padding:6px 4px;">Usage</td><td style="padding:6px 4px;">Exemple</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜個（こ）</td><td style="padding:6px 4px;">objets petits</td><td style="padding:6px 4px;">りんご三個</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜枚（まい）</td><td style="padding:6px 4px;">objets plats</td><td style="padding:6px 4px;">紙一枚</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜本（ほん）</td><td style="padding:6px 4px;">objets longs</td><td style="padding:6px 4px;">ペン二本</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜冊（さつ）</td><td style="padding:6px 4px;">livres</td><td style="padding:6px 4px;">本三冊</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜匹（ひき）</td><td style="padding:6px 4px;">petits animaux</td><td style="padding:6px 4px;">猫二匹 ※一匹、六匹</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜羽（わ）</td><td style="padding:6px 4px;">oiseaux, lapins</td><td style="padding:6px 4px;">うさぎ一羽</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜頭（とう）</td><td style="padding:6px 4px;">grands animaux</td><td style="padding:6px 4px;">馬三頭</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜台（だい）</td><td style="padding:6px 4px;">machines, véhicules</td><td style="padding:6px 4px;">車一台</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜杯（はい）</td><td style="padding:6px 4px;">boissons</td><td style="padding:6px 4px;">コーヒー一杯</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜回（かい）</td><td style="padding:6px 4px;">nombre de fois</td><td style="padding:6px 4px;">週三回 ※六回、十回</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜番目（ばんめ）</td><td style="padding:6px 4px;">rang, ordre</td><td style="padding:6px 4px;">三番目の席</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜代目（だいめ）</td><td style="padding:6px 4px;">génération</td><td style="padding:6px 4px;">三代目</td></tr>
+        </table>
+        <div style="margin-top:12px;background:rgba(77,255,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">Compteur + も + ない :</strong> 一匹も飼っていません = Je n'en ai pas un seul
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff4d4d;">
+        <h2 style="color:#ff4d4d;margin-bottom:12px;font-size:15px;">🔢 Grands nombres</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr><td style="padding:6px 4px;color:#4dffcc;">百（ひゃく）</td><td style="padding:6px 4px;">100</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">千（せん）</td><td style="padding:6px 4px;">1 000</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">万（まん）</td><td style="padding:6px 4px;">10 000</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">億（おく）</td><td style="padding:6px 4px;">100 000 000</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">11 500</td><td style="padding:6px 4px;">一万一千五百</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">1 000 000</td><td style="padding:6px 4px;">百万（ひゃくまん）</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2 : FORMES -->
+    <div id="gtab-2" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+
+      <div style="background:rgba(77,159,255,0.06);border-radius:16px;padding:16px;border:1px solid rgba(77,159,255,0.2);">
+        <div style="font-size:13px;color:var(--text);line-height:1.7;">
+          <strong style="color:#4d9fff;">Les formes grammaticales</strong> permettent d'exprimer des nuances de sens précises. Deux formes sont centrales en japonais :<br>
+          • La <strong style="color:#4dffcc;">forme て（て）</strong> : polyvalente, elle sert à enchaîner, exprimer la simultanéité, donner des ordres polis, ou former le progressif avec いる.<br>
+          • La <strong style="color:#ff4d4d;">forme ない</strong> : base de toutes les négations courtes. En ajoutant で, elle exprime "sans faire".
+        </div>
+      </div>
+
+      <!-- FORME て -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4d9fff;">
+        <h2 style="color:#4d9fff;margin-bottom:12px;font-size:15px;">📝 Forme て（て）— usages</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ordre poli</td><td style="padding:6px 4px;">〜てください</td><td style="padding:6px 4px;">食べてください（たべてください）</td><td style="padding:6px 4px;">Veuillez manger</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Moyen de transport</td><td style="padding:6px 4px;">〜て行く/来る</td><td style="padding:6px 4px;">歩いて行きます（あるいていきます）</td><td style="padding:6px 4px;">J'y vais à pied</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Enchaîner 2 actions</td><td style="padding:6px 4px;">V1て、V2</td><td style="padding:6px 4px;">食べて寝ます（たべてねます）</td><td style="padding:6px 4px;">Je mange puis je dors</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Cause / raison</td><td style="padding:6px 4px;">〜て + résultat</td><td style="padding:6px 4px;">雨が降って嬉しい（あめがふってうれしい）</td><td style="padding:6px 4px;">Content qu'il pleuve</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Action en cours</td><td style="padding:6px 4px;">〜ている</td><td style="padding:6px 4px;">電話で話しています（はなしています）</td><td style="padding:6px 4px;">Je suis en train de parler</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">État continu</td><td style="padding:6px 4px;">〜ている</td><td style="padding:6px 4px;">結婚しています（けっこんしています）</td><td style="padding:6px 4px;">Je suis marié(e)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Résultat visible</td><td style="padding:6px 4px;">〜ている</td><td style="padding:6px 4px;">窓が開いています（まどがあいています）</td><td style="padding:6px 4px;">La fenêtre est ouverte</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Permission</td><td style="padding:6px 4px;">〜てもいい</td><td style="padding:6px 4px;">食べてもいいです（たべてもいいです）</td><td style="padding:6px 4px;">Tu peux manger</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Interdiction</td><td style="padding:6px 4px;">〜てはいけない</td><td style="padding:6px 4px;">入ってはいけません（はいってはいけません）</td><td style="padding:6px 4px;">Il est interdit d'entrer</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Essayer de faire</td><td style="padding:6px 4px;">〜てみる</td><td style="padding:6px 4px;">食べてみました（たべてみました）</td><td style="padding:6px 4px;">J'ai essayé de manger</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Donner / rendre service</td><td style="padding:6px 4px;">〜てあげる/くれる/もらう</td><td style="padding:6px 4px;">教えてあげます（おしえてあげます）</td><td style="padding:6px 4px;">Je vais t'enseigner</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(77,159,255,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">〜ている raccourci en casual :</strong> 食べている → 食べてる（たべてる）
+        </div>
+      </div>
+
+      <!-- FORME ないで -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff4d4d;">
+        <h2 style="color:#ff4d4d;margin-bottom:8px;font-size:15px;">🚫 Forme ないで — sans faire / ne fais pas</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Forme ない + で. Exprime soit un ordre négatif ("ne fais pas"), soit une action faite sans en faire une autre ("sans faire").</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ordre négatif</td><td style="padding:6px 4px;">〜ないで</td><td style="padding:6px 4px;">走らないで！（はしらないで）</td><td style="padding:6px 4px;">Ne cours pas !</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Sans faire</td><td style="padding:6px 4px;">〜ないで + V2</td><td style="padding:6px 4px;">食べないで寝ました（たべないでねました）</td><td style="padding:6px 4px;">J'ai dormi sans manger</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">する irrég.</td><td style="padding:6px 4px;">しないで</td><td style="padding:6px 4px;">宿題をしないでゲームをした</td><td style="padding:6px 4px;">J'ai joué sans faire les devoirs</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">くる irrég.</td><td style="padding:6px 4px;">こないで</td><td style="padding:6px 4px;">こないでください</td><td style="padding:6px 4px;">Ne viens pas s'il te plaît</td></tr>
+        </table>
+      </div>
+
+      <!-- COMPARAISON -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dffcc;">
+        <h2 style="color:#4dffcc;margin-bottom:8px;font-size:15px;">↔️ Comparaison — より（より）/ のほうが</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Pour comparer deux éléments. より marque "que" (le moins), のほうが marque "celui qui est plus". Ils peuvent s'utiliser ensemble ou séparément.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">A est moins que B</td><td style="padding:6px 4px;">AよりBのほうが〜</td><td style="padding:6px 4px;">東京より大阪のほうが好きです</td><td style="padding:6px 4px;">Je préfère Osaka à Tokyo</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Plutôt que A</td><td style="padding:6px 4px;">Aより〜</td><td style="padding:6px 4px;">コーヒーよりお茶が好きです</td><td style="padding:6px 4px;">Je préfère le thé au café</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Le plus (superlatif)</td><td style="padding:6px 4px;">〜が一番（いちばん）〜</td><td style="padding:6px 4px;">日本語が一番難しいです</td><td style="padding:6px 4px;">Le japonais est le plus difficile</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Lequel préfères-tu ?</td><td style="padding:6px 4px;">AとBとどちらが〜</td><td style="padding:6px 4px;">猫と犬とどちらが好きですか</td><td style="padding:6px 4px;">Tu préfères les chats ou les chiens ?</td></tr>
+        </table>
+      </div>
+
+      <!-- PARTICULES に vs で vs と -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+        <h2 style="color:#b44dff;margin-bottom:8px;font-size:15px;">🔤 Particules に vs で vs と</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Les particules sont l'une des difficultés majeures du japonais. Leur sens change selon le contexte et le verbe utilisé.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Particule</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">に + lieu</td><td style="padding:6px 4px;">destination / existence</td><td style="padding:6px 4px;">学校に行きます（がっこうにいきます）</td><td style="padding:6px 4px;">Je vais à l'école</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">に + heure</td><td style="padding:6px 4px;">point précis dans le temps</td><td style="padding:6px 4px;">三時に来ます（さんじにきます）</td><td style="padding:6px 4px;">Il vient à 15h</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">に会う（あう）</td><td style="padding:6px 4px;">rencontrer (intentionnel)</td><td style="padding:6px 4px;">彼女に会いに行った（かのじょにあいにいった）</td><td style="padding:6px 4px;">Je suis allé la voir</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">に住んでいる（すんでいる）</td><td style="padding:6px 4px;">habiter (état)</td><td style="padding:6px 4px;">東京に住んでいます（とうきょうにすんでいます）</td><td style="padding:6px 4px;">J'habite à Tokyo</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">で + lieu</td><td style="padding:6px 4px;">lieu de l'action</td><td style="padding:6px 4px;">図書館で勉強します（としょかんでべんきょうします）</td><td style="padding:6px 4px;">J'étudie à la bibliothèque</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">で + moyen</td><td style="padding:6px 4px;">outil / moyen de transport</td><td style="padding:6px 4px;">バスで行きます（バスでいきます）</td><td style="padding:6px 4px;">J'y vais en bus</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">と会う（あう）</td><td style="padding:6px 4px;">se retrouver (mutuel)</td><td style="padding:6px 4px;">友達と会いました（ともだちとあいました）</td><td style="padding:6px 4px;">Je me suis retrouvé avec un ami</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">と遊ぶ（あそぶ）</td><td style="padding:6px 4px;">jouer avec</td><td style="padding:6px 4px;">子供と遊びます（こどもとあそびます）</td><td style="padding:6px 4px;">Je joue avec les enfants</td></tr>
+        </table>
+      </div>
+
+      <!-- TRANSITIVE/INTRANSITIF -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:15px;">⚡ Verbes transitifs vs intransitifs</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">En japonais, beaucoup de verbes existent en paires : une version avec sujet actif (transitif, avec を) et une version décrivant ce qui arrive à l'objet (intransitif, avec が ou は).</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Transitif (action)</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Intransitif (état)</td><td style="padding:6px 4px;">Sens</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">始める（はじめる）</td><td style="padding:6px 4px;">commencer qqch</td><td style="padding:6px 4px;color:#4dffcc;">始まる（はじまる）</td><td style="padding:6px 4px;">qqch commence</td></tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">開ける（あける）</td><td style="padding:6px 4px;">ouvrir qqch</td><td style="padding:6px 4px;color:#4dffcc;">開く（あく）</td><td style="padding:6px 4px;">qqch s'ouvre</td></tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">閉める（しめる）</td><td style="padding:6px 4px;">fermer qqch</td><td style="padding:6px 4px;color:#4dffcc;">閉まる（しまる）</td><td style="padding:6px 4px;">qqch se ferme</td></tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">出す（だす）</td><td style="padding:6px 4px;">sortir qqch</td><td style="padding:6px 4px;color:#4dffcc;">出る（でる）</td><td style="padding:6px 4px;">sortir (soi-même)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">入れる（いれる）</td><td style="padding:6px 4px;">mettre dedans</td><td style="padding:6px 4px;color:#4dffcc;">入る（はいる）</td><td style="padding:6px 4px;">entrer</td></tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">上げる（あげる）</td><td style="padding:6px 4px;">lever qqch</td><td style="padding:6px 4px;color:#4dffcc;">上がる（あがる）</td><td style="padding:6px 4px;">monter</td></tr>
+          <tr><td style="padding:6px 4px;color:#4d9fff;">下げる（さげる）</td><td style="padding:6px 4px;">baisser qqch</td><td style="padding:6px 4px;color:#4dffcc;">下がる（さがる）</td><td style="padding:6px 4px;">descendre</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(255,159,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">Règle générale :</strong> transitif → を + verbe en -eru · intransitif → が/は + verbe en -aru ou -u
+        </div>
+      </div>
+
+      <!-- たことがある -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dffcc;">
+        <h2 style="color:#4dffcc;margin-bottom:8px;font-size:15px;">📚 〜たことがある — avoir déjà fait</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Exprime une expérience passée. Se forme avec la forme た + ことがある. La négation : ことがない (n'avoir jamais fait).</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Avoir déjà fait</td><td style="padding:6px 4px;">〜たことがある</td><td style="padding:6px 4px;">寿司を食べたことがあります（すしをたべたことがあります）</td><td style="padding:6px 4px;">J'ai déjà mangé des sushis</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">N'avoir jamais fait</td><td style="padding:6px 4px;">〜たことがない</td><td style="padding:6px 4px;">日本に行ったことがありません（にほんにいったことがありません）</td><td style="padding:6px 4px;">Je ne suis jamais allé au Japon</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Demander l'expérience</td><td style="padding:6px 4px;">〜たことがありますか</td><td style="padding:6px 4px;">空手をしたことがありますか（からてをしたことがありますか）</td><td style="padding:6px 4px;">As-tu déjà fait du karaté ?</td></tr>
+        </table>
+      </div>
+
+      <!-- たり〜たりする -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+        <h2 style="color:#b44dff;margin-bottom:8px;font-size:15px;">🔀 〜たり〜たりする — tantôt... tantôt...</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Liste non exhaustive d'actions. Indique qu'on fait plusieurs choses parmi d'autres. Se forme avec forme た + り pour chaque verbe, puis する à la fin.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Actions variées</td><td style="padding:6px 4px;">V1たりV2たりする</td><td style="padding:6px 4px;">映画を見たり音楽を聴いたりします（えいがをみたりおんがくをきいたりします）</td><td style="padding:6px 4px;">Je regarde des films, écoute de la musique, etc.</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Alternance</td><td style="padding:6px 4px;">V1たりV2たりする</td><td style="padding:6px 4px;">泣いたり笑ったりしています（ないたりわらったりしています）</td><td style="padding:6px 4px;">Il pleure et rit tour à tour</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">1 seul verbe</td><td style="padding:6px 4px;">〜たりする</td><td style="padding:6px 4px;">遅刻したりします（ちこくしたりします）</td><td style="padding:6px 4px;">Il lui arrive d'être en retard</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(180,77,255,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 Formation : même règle que la forme た (たべた→たべたり、のんだ→のんだり)
+        </div>
+      </div>
+
+      <!-- ながら -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dff4d;">
+        <h2 style="color:#4dff4d;margin-bottom:8px;font-size:15px;">🔄 〜ながら — tout en faisant</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Exprime deux actions simultanées par le même sujet. L'action principale est le 2e verbe. Formation : base en ます (sans ます) + ながら.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Simultanéité</td><td style="padding:6px 4px;">V1(ます base)ながらV2</td><td style="padding:6px 4px;">音楽を聴きながら勉強します（おんがくをききながらべんきょうします）</td><td style="padding:6px 4px;">J'étudie en écoutant de la musique</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Simultanéité</td><td style="padding:6px 4px;">V1(ます base)ながらV2</td><td style="padding:6px 4px;">歩きながら話します（あるきながらはなします）</td><td style="padding:6px 4px;">Je parle en marchant</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">する irrég.</td><td style="padding:6px 4px;">しながら</td><td style="padding:6px 4px;">運動しながらテレビを見る（うんどうしながらテレビをみる）</td><td style="padding:6px 4px;">Regarder la TV en faisant du sport</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(77,255,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          ⚠️ <strong style="color:var(--text);">ながら ≠ てから :</strong> ながら = simultané · てから = l'un puis l'autre
+        </div>
+      </div>
+
+      <!-- 前に / 後で -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:15px;">⏩ 〜前に／〜後で — avant / après de faire</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Attention aux formes ! Avant une action → verbe au présent (dictionnaire) + 前に. Après une action → verbe au passé (た) + 後で.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Avant de faire</td><td style="padding:6px 4px;">V（dict.）前に（まえに）</td><td style="padding:6px 4px;">寝る前に歯を磨きます（ねるまえにはをみがきます）</td><td style="padding:6px 4px;">Je me brosse les dents avant de dormir</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Après avoir fait</td><td style="padding:6px 4px;">V（た）後で（あとで）</td><td style="padding:6px 4px;">食べた後で散歩します（たべたあとでさんぽします）</td><td style="padding:6px 4px;">Je me promène après avoir mangé</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Avant (nom)</td><td style="padding:6px 4px;">名詞の前に</td><td style="padding:6px 4px;">授業の前に（じゅぎょうのまえに）</td><td style="padding:6px 4px;">Avant le cours</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Après (nom)</td><td style="padding:6px 4px;">名詞の後で</td><td style="padding:6px 4px;">仕事の後で（しごとのあとで）</td><td style="padding:6px 4px;">Après le travail</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(255,159,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">Règle clé :</strong> 前に（まえに）→ toujours forme dictionnaire · 後で（あとで）→ toujours forme た
+        </div>
+      </div>
+
+      <!-- すぎる -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff4d4d;">
+        <h2 style="color:#ff4d4d;margin-bottom:8px;font-size:15px;">⚡ 〜すぎる（すぎる）— trop</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Exprime l'excès. S'attache à la base en ます pour les verbes, à la racine pour les adjectifs (sans い ou な).</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Type</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Verbe</td><td style="padding:6px 4px;">V(ます base)すぎる</td><td style="padding:6px 4px;">食べすぎる（たべすぎる）</td><td style="padding:6px 4px;">manger trop</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Verbe passé</td><td style="padding:6px 4px;">V(ます base)すぎた</td><td style="padding:6px 4px;">飲みすぎました（のみすぎました）</td><td style="padding:6px 4px;">J'ai trop bu</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">い-adj</td><td style="padding:6px 4px;">〜(い→)すぎる</td><td style="padding:6px 4px;">高すぎる（たかすぎる）</td><td style="padding:6px 4px;">trop cher</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">な-adj</td><td style="padding:6px 4px;">〜(な→)すぎる</td><td style="padding:6px 4px;">静かすぎる（しずかすぎる）</td><td style="padding:6px 4px;">trop calme</td></tr>
+        </table>
+      </div>
+
+      <!-- やすい / にくい -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4d9fff;">
+        <h2 style="color:#4d9fff;margin-bottom:8px;font-size:15px;">🎯 〜やすい／〜にくい — facile / difficile à faire</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">S'attache à la base en ます. Le résultat se comporte comme un adjectif en い et se conjugue de la même façon.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Facile à faire</td><td style="padding:6px 4px;">V(ます base)やすい</td><td style="padding:6px 4px;">この本は読みやすい（このほんはよみやすい）</td><td style="padding:6px 4px;">Ce livre est facile à lire</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Difficile à faire</td><td style="padding:6px 4px;">V(ます base)にくい</td><td style="padding:6px 4px;">この漢字は書きにくい（このかんじはかきにくい）</td><td style="padding:6px 4px;">Ce kanji est difficile à écrire</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Tendance à</td><td style="padding:6px 4px;">V(ます base)やすい</td><td style="padding:6px 4px;">風邪を引きやすい（かぜをひきやすい）</td><td style="padding:6px 4px;">J'attrape facilement des rhumes</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Résiste à</td><td style="padding:6px 4px;">V(ます base)にくい</td><td style="padding:6px 4px;">割れにくいガラス（われにくいガラス）</td><td style="padding:6px 4px;">Verre difficile à casser</td></tr>
+        </table>
+      </div>
+
+      <!-- ばかり -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:15px;">🌀 〜ばかり — ne faire que / venir juste de</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Deux usages distincts selon la forme du verbe qui précède.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ne faire que (excès)</td><td style="padding:6px 4px;">V（dict.）ばかり</td><td style="padding:6px 4px;">ゲームばかりしています（ゲームばかりしています）</td><td style="padding:6px 4px;">Il ne fait que jouer aux jeux vidéo</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Venir juste de faire</td><td style="padding:6px 4px;">V（た）ばかり</td><td style="padding:6px 4px;">日本に来たばかりです（にほんにきたばかりです）</td><td style="padding:6px 4px;">Je viens juste d'arriver au Japon</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Presque que</td><td style="padding:6px 4px;">nom + ばかり</td><td style="padding:6px 4px;">野菜ばかり食べます（やさいばかりたべます）</td><td style="padding:6px 4px;">Je ne mange presque que des légumes</td></tr>
+        </table>
+      </div>
+
+      <!-- そうだ / らしい / はずだ / ようだ -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+        <h2 style="color:#b44dff;margin-bottom:8px;font-size:15px;">🔮 Modalités — そうだ・らしい・はずだ・ようだ</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Ces formes nuancent le degré de certitude ou la source d'une information. Toutes importantes en B1 !</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Forme</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Source</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜そうだ（そうだ）</td><td style="padding:6px 4px;">avoir l'air de / sembler</td><td style="padding:6px 4px;">apparence visuelle</td><td style="padding:6px 4px;">おいしそうです（おいしそうです）</td><td style="padding:6px 4px;">Ça a l'air délicieux</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜そうだ（情報）</td><td style="padding:6px 4px;">il paraît que (ouï-dire)</td><td style="padding:6px 4px;">information entendue</td><td style="padding:6px 4px;">明日雨が降るそうです（あしたあめがふるそうです）</td><td style="padding:6px 4px;">Il paraît qu'il pleuvra demain</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜らしい（らしい）</td><td style="padding:6px 4px;">il paraît que / typique de</td><td style="padding:6px 4px;">rumeur / déduction</td><td style="padding:6px 4px;">田中さんは結婚したらしい（たなかさんはけっこんしたらしい）</td><td style="padding:6px 4px;">Il paraît que M. Tanaka s'est marié</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜はずだ（はずだ）</td><td style="padding:6px 4px;">censé être / devoir être</td><td style="padding:6px 4px;">logique / attente</td><td style="padding:6px 4px;">もう来るはずです（もうくるはずです）</td><td style="padding:6px 4px;">Il devrait déjà être là</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜ようだ（ようだ）</td><td style="padding:6px 4px;">il semble que / on dirait</td><td style="padding:6px 4px;">observation directe</td><td style="padding:6px 4px;">具合が悪いようです（ぐあいがわるいようです）</td><td style="padding:6px 4px;">On dirait qu'il ne va pas bien</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(180,77,255,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">Formation de 〜そうだ (apparence) :</strong><br>
+          い-adj : 高い → 高そう · な-adj : 元気 → 元気そう · verbe : 降る → 降りそう<br>
+          ⚠️ いい → よさそう (exception !)
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 3 : DISCOURS RAPPORTÉ -->
+    <div id="gtab-3" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+
+      <div style="background:rgba(255,159,77,0.06);border-radius:16px;padding:16px;border:1px solid rgba(255,159,77,0.2);">
+        <div style="font-size:13px;color:var(--text);line-height:1.7;">
+          <strong style="color:#ff9f4d;">Le discours rapporté en japonais</strong> utilise la particule <strong style="color:#4dffcc;">と</strong> pour citer ce que quelqu'un a dit ou pensé. Contrairement au français, pas de guillemets ni de conjugaison au passé : on rapporte mot pour mot avec le verbe original, puis on ajoute と + verbe de parole.<br><br>
+          En registre familier, と言った se raccourcit en <strong style="color:#4dffcc;">って</strong>, très courant à l'oral.
+        </div>
+      </div>
+
+      <!-- DISCOURS RAPPORTÉ -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:12px;font-size:15px;">💬 Discours rapporté — と（と）</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Type</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Nom</td><td style="padding:6px 4px;">Il a dit que c'est...</td><td style="padding:6px 4px;">〜だと言いました</td><td style="padding:6px 4px;">リンゴだと言いました（りんごだといいました）</td><td style="padding:6px 4px;">Il a dit que c'était une pomme</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">な-adj</td><td style="padding:6px 4px;">Il a dit que c'est...</td><td style="padding:6px 4px;">〜だと言いました</td><td style="padding:6px 4px;">静かだと言いました（しずかだといいました）</td><td style="padding:6px 4px;">Il a dit que c'était calme</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">い-adj</td><td style="padding:6px 4px;">Il a dit que c'est...</td><td style="padding:6px 4px;">〜と言いました</td><td style="padding:6px 4px;">重いと言いました（おもいといいました）</td><td style="padding:6px 4px;">Il a dit que c'était lourd</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Verbe</td><td style="padding:6px 4px;">Il a dit qu'il...</td><td style="padding:6px 4px;">〜と言いました</td><td style="padding:6px 4px;">来ると言いました（くるといいました）</td><td style="padding:6px 4px;">Il a dit qu'il viendrait</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Familier</td><td style="padding:6px 4px;">Il a dit que...</td><td style="padding:6px 4px;">〜って</td><td style="padding:6px 4px;">明日来るって！（あしたくるって）</td><td style="padding:6px 4px;">Il dit qu'il vient demain !</td></tr>
+        </table>
+      </div>
+
+      <!-- VERBES DE DISCOURS -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dffcc;">
+        <h2 style="color:#4dffcc;margin-bottom:12px;font-size:15px;">🗣 Verbes de discours et de pensée</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜と思います（おもいます）</td><td style="padding:6px 4px;">Je pense que...</td><td style="padding:6px 4px;">来ると思います（くるとおもいます）</td><td style="padding:6px 4px;">Je pense qu'il vient</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜と思っています（おもっています）</td><td style="padding:6px 4px;">Je suis en train de penser...</td><td style="padding:6px 4px;">行こうと思っています（いこうとおもっています）</td><td style="padding:6px 4px;">J'envisage d'aller</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜と聞きました（ききました）</td><td style="padding:6px 4px;">J'ai entendu que...</td><td style="padding:6px 4px;">明日雨だと聞きました（あしたあめだときました）</td><td style="padding:6px 4px;">J'ai entendu qu'il pleuvra demain</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜と言いました（いいました）</td><td style="padding:6px 4px;">Il/elle a dit que...</td><td style="padding:6px 4px;">好きだと言いました（すきだといいました）</td><td style="padding:6px 4px;">Il a dit qu'il aimait ça</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜と考えています（かんがえています）</td><td style="padding:6px 4px;">Je réfléchis à / J'envisage</td><td style="padding:6px 4px;">転職すると考えています（てんしょくするとかんがえています）</td><td style="padding:6px 4px;">J'envisage de changer de travail</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">どう思いますか（おもいますか）</td><td style="padding:6px 4px;">Qu'en pensez-vous ?</td><td style="padding:6px 4px;">この映画どう思いますか（このえいがどうおもいますか）</td><td style="padding:6px 4px;">Que pensez-vous de ce film ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">何も〜ない（なにも〜ない）</td><td style="padding:6px 4px;">ne rien...</td><td style="padding:6px 4px;">何も言っていない（なにもいっていない）</td><td style="padding:6px 4px;">Je n'ai rien dit</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(77,255,204,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">思う（おもう）vs 考える（かんがえる）:</strong><br>
+          思う = penser (intuition, sentiment) · 考える = réfléchir (effort intellectuel)
+        </div>
+      </div>
+
+      <!-- QUESTIONS INDIRECTES -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+        <h2 style="color:#b44dff;margin-bottom:8px;font-size:15px;">❓ Nuances et questions</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Le japonais a plusieurs façons d'exprimer une question, une supposition ou une demande d'opinion selon le registre.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜なの？</td><td style="padding:6px 4px;">Question casual (nom/な-adj)</td><td style="padding:6px 4px;">元気なの？（げんきなの）</td><td style="padding:6px 4px;">Tu vas bien ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜の？</td><td style="padding:6px 4px;">Question casual (い-adj/verbe)</td><td style="padding:6px 4px;">美味しいの？（おいしいの）</td><td style="padding:6px 4px;">C'est bon ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">でしょう/だろう</td><td style="padding:6px 4px;">Supposition (poli/casual)</td><td style="padding:6px 4px;">明日晴れるでしょう（あしたはれるでしょう）</td><td style="padding:6px 4px;">Il fera beau demain, non ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜かな</td><td style="padding:6px 4px;">Se demander (monologue)</td><td style="padding:6px 4px;">来るかな（くるかな）</td><td style="padding:6px 4px;">Je me demande s'il viendra...</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜かどうか</td><td style="padding:6px 4px;">Si oui ou non (incertitude)</td><td style="padding:6px 4px;">行くかどうか分からない（いくかどうかわからない）</td><td style="padding:6px 4px;">Je ne sais pas si j'irai ou non</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜んですが/〜んですけど</td><td style="padding:6px 4px;">Introduire un sujet (poli)</td><td style="padding:6px 4px;">ちょっと聞きたいんですが（ききたいんですが）</td><td style="padding:6px 4px;">J'aimerais vous poser une question...</td></tr>
+        </table>
+      </div>
+
+      <!-- んだ / んです -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dff4d;">
+        <h2 style="color:#4dff4d;margin-bottom:8px;font-size:15px;">💡 〜んだ／〜んです — explication / insistance</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Très fréquent à l'oral. Ajoute une nuance d'explication, de justification ou de demande d'explication. んです = poli, んだ = casual.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Explication (verbe)</td><td style="padding:6px 4px;">V（dict.）んです</td><td style="padding:6px 4px;">頭が痛いんです（あたまがいたいんです）</td><td style="padding:6px 4px;">En fait j'ai mal à la tête</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Explication (nom/な-adj)</td><td style="padding:6px 4px;">〜なんです</td><td style="padding:6px 4px;">日本人なんです（にほんじんなんです）</td><td style="padding:6px 4px;">En fait je suis japonais</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Demande d'explication</td><td style="padding:6px 4px;">〜んですか</td><td style="padding:6px 4px;">どこに行くんですか（どこにいくんですか）</td><td style="padding:6px 4px;">Tu vas où (dis-moi) ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Casual</td><td style="padding:6px 4px;">〜んだ / 〜なんだ</td><td style="padding:6px 4px;">疲れたんだ（つかれたんだ）</td><td style="padding:6px 4px;">C'est que je suis fatigué</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Introduction polie</td><td style="padding:6px 4px;">〜んですが</td><td style="padding:6px 4px;">ちょっと聞きたいんですが（ちょっとききたいんですが）</td><td style="padding:6px 4px;">J'aurais une question à vous poser...</td></tr>
+        </table>
+      </div>
+
+      <!-- じゃないか -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:15px;">❓ 〜じゃないか — n'est-ce pas ? / surprise</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">Exprime une confirmation attendue, une surprise ou une légère indignation. じゃないか = casual, ではないか = formel.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Confirmation attendue</td><td style="padding:6px 4px;">いい映画じゃないか（いいえいがじゃないか）</td><td style="padding:6px 4px;">C'est un bon film, non ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Surprise positive</td><td style="padding:6px 4px;">もう着いたじゃないか！（もうついたじゃないか）</td><td style="padding:6px 4px;">Tu es déjà arrivé !</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Reproche léger</td><td style="padding:6px 4px;">言ったじゃないか（いったじゃないか）</td><td style="padding:6px 4px;">Je te l'avais dit, non ?</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Formel</td><td style="padding:6px 4px;">これは問題ではないか（これはもんだいではないか）</td><td style="padding:6px 4px;">N'est-ce pas là un problème ?</td></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- TAB 4 : POTENTIEL -->
+    <div id="gtab-4" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+
+      <div style="background:rgba(77,255,77,0.06);border-radius:16px;padding:16px;border:1px solid rgba(77,255,77,0.2);">
+        <div style="font-size:13px;color:var(--text);line-height:1.7;">
+          <strong style="color:#4dff4d;">La forme potentielle</strong> exprime la capacité ou la possibilité de faire quelque chose ("pouvoir faire", "savoir faire"). Elle est très utilisée en japonais du quotidien, notamment pour parler de compétences linguistiques, de contraintes pratiques, ou de situations possibles.<br><br>
+          <strong style="color:#4dffcc;">Attention :</strong> avec la forme potentielle, la particule を (objet direct) se transforme généralement en <strong style="color:#ff9f4d;">が</strong>. Ex : 日本語を話す（にほんごをはなす）→ 日本語が話せる（にほんごがはなせる）.<br><br>
+          <strong style="color:#b44dff;">Contexte B1 :</strong> la forme potentielle est indispensable pour exprimer des aptitudes, des permissions pratiques et des possibilités dans des conversations naturelles.
+        </div>
+      </div>
+
+      <!-- FORMATION -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dff4d;">
+        <h2 style="color:#4dff4d;margin-bottom:12px;font-size:15px;">⚡ Formation de la forme potentielle</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Groupe</td><td style="padding:6px 4px;">Règle</td><td style="padding:6px 4px;">Verbe base</td><td style="padding:6px 4px;">Forme potentielle</td><td style="padding:6px 4px;">Sens</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan — く</td><td style="padding:6px 4px;">ku → keru</td><td style="padding:6px 4px;">書く（かく）</td><td style="padding:6px 4px;">書ける（かける）</td><td style="padding:6px 4px;">pouvoir écrire</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan — む</td><td style="padding:6px 4px;">mu → meru</td><td style="padding:6px 4px;">飲む（のむ）</td><td style="padding:6px 4px;">飲める（のめる）</td><td style="padding:6px 4px;">pouvoir boire</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan — す</td><td style="padding:6px 4px;">su → seru</td><td style="padding:6px 4px;">話す（はなす）</td><td style="padding:6px 4px;">話せる（はなせる）</td><td style="padding:6px 4px;">pouvoir parler</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan — う</td><td style="padding:6px 4px;">u → eru</td><td style="padding:6px 4px;">買う（かう）</td><td style="padding:6px 4px;">買える（かえる）</td><td style="padding:6px 4px;">pouvoir acheter</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan — る</td><td style="padding:6px 4px;">ru → reru</td><td style="padding:6px 4px;">帰る（かえる）</td><td style="padding:6px 4px;">帰れる（かえれる）</td><td style="padding:6px 4px;">pouvoir rentrer</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ichidan</td><td style="padding:6px 4px;">る → られる</td><td style="padding:6px 4px;">食べる（たべる）</td><td style="padding:6px 4px;">食べられる（たべられる）</td><td style="padding:6px 4px;">pouvoir manger</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ichidan</td><td style="padding:6px 4px;">る → られる</td><td style="padding:6px 4px;">見る（みる）</td><td style="padding:6px 4px;">見られる（みられる）</td><td style="padding:6px 4px;">pouvoir voir</td></tr>
+          <tr><td style="padding:6px 4px;color:#ff4d4d;">する</td><td style="padding:6px 4px;">irrégulier</td><td style="padding:6px 4px;">する</td><td style="padding:6px 4px;">できる</td><td style="padding:6px 4px;">pouvoir faire</td></tr>
+          <tr><td style="padding:6px 4px;color:#ff4d4d;">くる（来る）</td><td style="padding:6px 4px;">irrégulier</td><td style="padding:6px 4px;">くる（くる）</td><td style="padding:6px 4px;">こられる（こられる）</td><td style="padding:6px 4px;">pouvoir venir</td></tr>
+        </table>
+        <div style="margin-top:10px;background:rgba(77,255,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">を → が avec le potentiel :</strong> 日本語を話します → 日本語が話せます（にほんごがはなせます）<br>
+          ⚠️ Ichidan : られる = potentiel ET passif → le contexte permet de distinguer
+        </div>
+      </div>
+
+      <!-- USAGES CONCRETS -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4d9fff;">
+        <h2 style="color:#4d9fff;margin-bottom:12px;font-size:15px;">🎯 Usages concrets (contexte B1)</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Compétence linguistique</td><td style="padding:6px 4px;">日本語が話せます（にほんごがはなせます）</td><td style="padding:6px 4px;">Je parle japonais</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Impossibilité pratique</td><td style="padding:6px 4px;">今日は来られません（きょうはこられません）</td><td style="padding:6px 4px;">Je ne peux pas venir aujourd'hui</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Possibilité générale</td><td style="padding:6px 4px;">ここで写真が撮れます（とれます）</td><td style="padding:6px 4px;">On peut prendre des photos ici</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Capacité acquise</td><td style="padding:6px 4px;">漢字が読めるようになりました（よめるようになりました）</td><td style="padding:6px 4px;">J'ai réussi à lire les kanjis</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Demander si possible</td><td style="padding:6px 4px;">手伝っていただけますか（てつだっていただけますか）</td><td style="padding:6px 4px;">Pourriez-vous m'aider ?</td></tr>
+        </table>
+      </div>
+
+      <!-- DEVENIR CAPABLE -->
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:8px;font-size:15px;">🌱 Exprimer le changement — 〜になる（になる）</h2>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">なる (devenir) combiné à différentes formes exprime une évolution, un changement d'état. Très utile pour parler de progrès.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Structure</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td><td style="padding:6px 4px;">Traduction</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">い-adj + くなる</td><td style="padding:6px 4px;">devenir + adjectif</td><td style="padding:6px 4px;">強くなる（つよくなる）</td><td style="padding:6px 4px;">devenir fort</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">な-adj + になる</td><td style="padding:6px 4px;">devenir + adjectif</td><td style="padding:6px 4px;">好きになる（すきになる）</td><td style="padding:6px 4px;">commencer à aimer</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">nom + になる</td><td style="padding:6px 4px;">devenir + nom</td><td style="padding:6px 4px;">医者になる（いしゃになる）</td><td style="padding:6px 4px;">devenir médecin</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">potentiel + ようになる</td><td style="padding:6px 4px;">devenir capable de</td><td style="padding:6px 4px;">話せるようになる（はなせるようになる）</td><td style="padding:6px 4px;">devenir capable de parler</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">dict. + ようになる</td><td style="padding:6px 4px;">en venir à faire</td><td style="padding:6px 4px;">毎日走るようになった（まいにちはしるようになった）</td><td style="padding:6px 4px;">j'en suis venu à courir tous les jours</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">ない + ようになる</td><td style="padding:6px 4px;">en venir à ne plus faire</td><td style="padding:6px 4px;">タバコを吸わないようになった（すわないようになった）</td><td style="padding:6px 4px;">j'ai arrêté de fumer progressivement</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 5 : PASSIF -->
+    <div id="gtab-5" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff4d4d;">
+        <h2 style="color:#ff4d4d;margin-bottom:12px;font-size:15px;">🔄 Forme passive — être fait</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Type</td><td style="padding:6px 4px;">Règle</td><td style="padding:6px 4px;">Exemple</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan</td><td style="padding:6px 4px;">u → areru</td><td style="padding:6px 4px;">書く→書かれる、飲む→飲まれる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ichidan</td><td style="padding:6px 4px;">る → られる</td><td style="padding:6px 4px;">食べる→食べられる、見る→見られる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">する</td><td style="padding:6px 4px;">irrégulier</td><td style="padding:6px 4px;">する→される</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">くる</td><td style="padding:6px 4px;">irrégulier</td><td style="padding:6px 4px;">くる→こられる</td></tr>
+        </table>
+        <div style="margin-top:12px;background:rgba(255,77,77,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">Structure :</strong> 〔sujet〕は〔agent〕に〔verbe passif〕<br>
+          私は先生に褒められました。 = J'ai été félicité par le professeur.
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #b44dff;">
+        <h2 style="color:#b44dff;margin-bottom:12px;font-size:15px;">🎭 Forme causative — faire faire</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Type</td><td style="padding:6px 4px;">Règle</td><td style="padding:6px 4px;">Exemple</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Godan</td><td style="padding:6px 4px;">u → aseru</td><td style="padding:6px 4px;">書く→書かせる、飲む→飲ませる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">Ichidan</td><td style="padding:6px 4px;">る → させる</td><td style="padding:6px 4px;">食べる→食べさせる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">する</td><td style="padding:6px 4px;">irrégulier</td><td style="padding:6px 4px;">する→させる</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">くる</td><td style="padding:6px 4px;">irrégulier</td><td style="padding:6px 4px;">くる→こさせる</td></tr>
+        </table>
+        <div style="margin-top:12px;background:rgba(180,77,255,0.08);border-radius:8px;padding:10px;font-size:12px;color:var(--muted);">
+          💡 <strong style="color:var(--text);">Structure :</strong> 〔sujet〕は〔personne〕を/に〔verbe causatif〕<br>
+          先生は生徒に本を読ませました。 = Le professeur a fait lire le livre à l'élève.
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6 : CONDITIONNEL -->
+    <div id="gtab-6" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dffcc;">
+        <h2 style="color:#4dffcc;margin-bottom:12px;font-size:15px;">🌿 Les 4 conditionnels</h2>
+
+        <div style="margin-bottom:16px;padding:12px;background:rgba(77,255,204,0.08);border-radius:8px;">
+          <div style="color:#4dffcc;font-weight:700;margin-bottom:6px;">〜たら — si/quand (résultat certain)</div>
+          <div style="font-size:13px;color:var(--muted);">食べたら、眠くなります。Si je mange, j'aurai sommeil.</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Formation : forme た + ら</div>
+        </div>
+
+        <div style="margin-bottom:16px;padding:12px;background:rgba(77,159,255,0.08);border-radius:8px;">
+          <div style="color:#4d9fff;font-weight:700;margin-bottom:6px;">〜ば — si (condition hypothétique)</div>
+          <div style="font-size:13px;color:var(--muted);">お金があれば、旅行します。Si j'avais de l'argent, je voyagerais.</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Formation godan : u → eba / Ichidan : る → れば</div>
+        </div>
+
+        <div style="margin-bottom:16px;padding:12px;background:rgba(255,159,77,0.08);border-radius:8px;">
+          <div style="color:#ff9f4d;font-weight:700;margin-bottom:6px;">〜と — si (résultat automatique)</div>
+          <div style="font-size:13px;color:var(--muted);">春になると、桜が咲きます。Quand le printemps arrive, les cerisiers fleurissent.</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Pour les vérités générales et faits naturels</div>
+        </div>
+
+        <div style="padding:12px;background:rgba(180,77,255,0.08);border-radius:8px;">
+          <div style="color:#b44dff;font-weight:700;margin-bottom:6px;">〜なら — si c'est le cas que</div>
+          <div style="font-size:13px;color:var(--muted);">日本に行くなら、京都に行ってください。Si tu vas au Japon, vas à Kyoto.</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Pour des conseils basés sur la situation de l'autre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7 : PERMISSION -->
+    <div id="gtab-7" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #4dff4d;">
+        <h2 style="color:#4dff4d;margin-bottom:12px;font-size:15px;">🎯 Permission et interdiction</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border);">
+            <td style="padding:6px 4px;">Expression</td><td style="padding:6px 4px;">Sens</td><td style="padding:6px 4px;">Exemple</td>
+          </tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜てもいい</td><td style="padding:6px 4px;">tu peux / c'est permis</td><td style="padding:6px 4px;">食べてもいいです</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜てはいけない</td><td style="padding:6px 4px;">il ne faut pas</td><td style="padding:6px 4px;">食べてはいけません</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜なくてもいい</td><td style="padding:6px 4px;">pas obligé de</td><td style="padding:6px 4px;">食べなくてもいいです</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜なければならない</td><td style="padding:6px 4px;">il faut / devoir</td><td style="padding:6px 4px;">食べなければなりません</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜ないといけない</td><td style="padding:6px 4px;">il faut (familier)</td><td style="padding:6px 4px;">食べないといけない</td></tr>
+        </table>
+      </div>
+
+      <div style="background:var(--surface);border-radius:16px;padding:20px;border-left:3px solid #ff9f4d;">
+        <h2 style="color:#ff9f4d;margin-bottom:12px;font-size:15px;">📚 Expressions utiles de tes notes</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr><td style="padding:6px 4px;color:#4dffcc;">どれぐらい／どのぐらい</td><td style="padding:6px 4px;">combien / à quelle fréquence</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">時間に〜回</td><td style="padding:6px 4px;">X fois par période (週三回)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜に行きます</td><td style="padding:6px 4px;">aller faire qqch (映画を見に行く)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜代（だい）</td><td style="padding:6px 4px;">facture / frais (電気代)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">〜たことがある</td><td style="padding:6px 4px;">avoir déjà fait</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">翌日（よくじつ）</td><td style="padding:6px 4px;">le lendemain (écrit)</td></tr>
+          <tr><td style="padding:6px 4px;color:#4dffcc;">えんりょする</td><td style="padding:6px 4px;">se retenir / hésiter par politesse</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 8 : QUIZ GLOBAL -->
+    <div id="gtab-8" style="padding:20px;display:none;flex-direction:column;gap:16px;">
+      <div style="background:rgba(180,77,255,0.06);border-radius:16px;padding:16px;border:1px solid rgba(180,77,255,0.2);">
+        <div style="font-size:13px;color:var(--text);line-height:1.7;">
+          <strong style="color:#b44dff;">Quiz global</strong> — pioche dans toutes les catégories : conjugaison des verbes, adjectifs, et formes grammaticales. Chaque question t'indique la catégorie testée.
+        </div>
+      </div>
+      <div id="gquiz-card" style="background:var(--surface);border-radius:20px;padding:24px 16px;text-align:center;display:flex;flex-direction:column;gap:10px;">
+        <div id="gquiz-category" style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);"></div>
+        <div id="gquiz-word" style="font-family:'Noto Serif JP',serif;font-size:42px;font-weight:700;color:#b44dff;"></div>
+        <div id="gquiz-reading" style="font-size:14px;color:var(--muted);"></div>
+        <div id="gquiz-meaning" style="font-size:13px;color:var(--muted);font-style:italic;"></div>
+        <div id="gquiz-question" style="font-size:13px;color:var(--text);margin-top:6px;background:rgba(180,77,255,0.1);padding:10px;border-radius:8px;"></div>
+      </div>
+      <div id="gquiz-choices" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;"></div>
+      <div id="gquiz-score" style="text-align:center;color:var(--muted);font-size:13px;"></div>
+      <button onclick="startGlobalQuiz()" style="padding:14px;background:rgba(180,77,255,0.15);color:#b44dff;border:1px solid #b44dff44;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;">🔄 Nouveau quiz</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+function showGTab(idx) {
+  for (let i = 0; i < 9; i++) {
+    const tab = document.getElementById('gtab-' + i);
+    if (tab) tab.style.display = i === idx ? 'flex' : 'none';
+  }
+  document.querySelectorAll('.gtab-btn').forEach((btn, i) => {
+    const active = i === idx;
+    btn.style.background = active ? 'rgba(180,77,255,0.15)' : 'var(--surface)';
+    btn.style.color = active ? '#b44dff' : 'var(--muted)';
+    btn.style.borderBottom = active ? '2px solid #b44dff' : '2px solid transparent';
+  });
+}
+
+// ===== QUIZ GLOBAL =====
+
+// Questions grammaticales enrichies
+const GRAM_QUESTIONS = [
+  // たことがある
+  { category:'たことがある', word:'寿司を食べ___', reading:'たことがあります', meaning:'avoir déjà mangé des sushis',
+    correct:'たことがあります', wrongs:['ていました','てみます','ていきます'] },
+  { category:'たことがある', word:'富士山に登___', reading:'のぼったことがない', meaning:'ne jamais avoir gravi le Fuji',
+    correct:'ったことがありません', wrongs:['てみません','ていません','ませんでした'] },
+  // ながら
+  { category:'ながら', word:'音楽を聴き___勉強する', reading:'ながら', meaning:'étudier en écoutant de la musique',
+    correct:'ながら', wrongs:['てから','あとで','まえに'] },
+  { category:'ながら', word:'歩き___話す', reading:'ながら', meaning:'parler en marchant',
+    correct:'ながら', wrongs:['ながら食べる','てから','あとで'] },
+  // 前に / 後で
+  { category:'前に／後で', word:'寝る___ 歯を磨く', reading:'まえに', meaning:'se brosser les dents avant de dormir',
+    correct:'前に', wrongs:['後で','ながら','たり'] },
+  { category:'前に／後で', word:'食べた___ 散歩する', reading:'あとで', meaning:'se promener après avoir mangé',
+    correct:'後で', wrongs:['前に','ながら','ばかり'] },
+  // すぎる
+  { category:'すぎる', word:'食べ___はいけません', reading:'すぎては', meaning:'il ne faut pas trop manger',
+    correct:'すぎては', wrongs:['すぎなくては','たりしては','てみては'] },
+  { category:'すぎる', word:'高___ 買えません', reading:'たかすぎて', meaning:'trop cher pour acheter',
+    correct:'すぎて', wrongs:['くなくて','かったので','いから'] },
+  // やすい / にくい
+  { category:'やすい／にくい', word:'この本は読み___', reading:'よみやすい', meaning:'ce livre est facile à lire',
+    correct:'やすい', wrongs:['にくい','すぎる','ながら'] },
+  { category:'やすい／にくい', word:'この漢字は書き___', reading:'かきにくい', meaning:'ce kanji est difficile à écrire',
+    correct:'にくい', wrongs:['やすい','すぎる','たばかり'] },
+  // ばかり
+  { category:'ばかり', word:'日本に来た___です', reading:'きたばかり', meaning:'venir juste d\'arriver au Japon',
+    correct:'ばかり', wrongs:['ことがある','すぎる','ながら'] },
+  { category:'ばかり', word:'ゲーム___しています', reading:'ばかり', meaning:'ne faire que jouer aux jeux vidéo',
+    correct:'ばかり', wrongs:['ながら','たり','ように'] },
+  // たり〜たりする
+  { category:'たり〜たりする', word:'映画を見___音楽を聴い___します', reading:'みたりきいたり', meaning:'regarder des films, écouter de la musique...',
+    correct:'たり〜たりする', wrongs:['て〜てする','ながら〜ながら','で〜でする'] },
+  // そうだ
+  { category:'そうだ', word:'おいし___（apparence）', reading:'おいしそう', meaning:'avoir l\'air délicieux',
+    correct:'そう', wrongs:['らしい','はずだ','ようだ'] },
+  { category:'そうだ', word:'明日雨が降る___ (ouï-dire)', reading:'そうです', meaning:'il paraît qu\'il pleuvra',
+    correct:'そうです', wrongs:['らしいです','はずです','ようです'] },
+  // らしい
+  { category:'らしい', word:'田中さんは結婚した___', reading:'らしい', meaning:'il paraît que M. Tanaka s\'est marié',
+    correct:'らしい', wrongs:['そうだ','はずだ','ようだ'] },
+  // はずだ
+  { category:'はずだ', word:'もう来る___です', reading:'はず', meaning:'il devrait déjà être là',
+    correct:'はず', wrongs:['らしい','そう','よう'] },
+  // ようだ
+  { category:'ようだ', word:'具合が悪い___です（observation）', reading:'ようです', meaning:'on dirait qu\'il ne va pas bien',
+    correct:'ようです', wrongs:['そうです','らしいです','はずです'] },
+  // んです
+  { category:'んです', word:'頭が痛い___ （explication）', reading:'んです', meaning:'en fait j\'ai mal à la tête',
+    correct:'んです', wrongs:['でしょう','はずです','らしいです'] },
+  // とき
+  { category:'とき', word:'子供___、よく遊びました', reading:'のとき', meaning:'quand j\'étais enfant',
+    correct:'のとき', wrongs:['のあとで','のまえに','のながら'] },
+  { category:'とき', word:'寝る___歯を磨きます', reading:'まえに', meaning:'je me brosse les dents avant de dormir',
+    correct:'前に', wrongs:['とき','後で','ながら'] },
+  // より / のほうが
+  { category:'より／のほうが', word:'東京___大阪のほうが好きです', reading:'より', meaning:'je préfère Osaka à Tokyo',
+    correct:'より', wrongs:['から','まで','でも'] },
+  // 以上 / 以下
+  { category:'以上／以下', word:'五年___働いています', reading:'いじょう', meaning:'je travaille depuis au moins 5 ans',
+    correct:'以上', wrongs:['以下','以内','未満'] },
+  { category:'以上／以下', word:'三日___に返事します', reading:'いない', meaning:'je répondrai dans les 3 jours',
+    correct:'以内', wrongs:['以上','以下','未満'] },
+  // じゃないか
+  { category:'じゃないか', word:'いい映画___！', reading:'じゃないか', meaning:'c\'est un bon film, non ?',
+    correct:'じゃないか', wrongs:['ではありません','じゃなかった','ではないです'] },
+  // conditionnel
+  { category:'たら', word:'食べ___ 眠くなります', reading:'たら', meaning:'si je mange, j\'aurai sommeil',
+    correct:'たら', wrongs:['ながら','ても','てから'] },
+  { category:'ば', word:'お金があれ___ 旅行します', reading:'ば', meaning:'si j\'avais de l\'argent, je voyagerais',
+    correct:'ば', wrongs:['たら','なら','と'] },
+  // permission
+  { category:'てもいい', word:'食べ___いいですか', reading:'てもいい', meaning:'puis-je manger ?',
+    correct:'てもいい', wrongs:['てはいけない','ないで','ながら'] },
+  { category:'てはいけない', word:'入っ___いけません', reading:'てはいけません', meaning:'il est interdit d\'entrer',
+    correct:'てはいけません', wrongs:['てもいいです','てみます','てから'] },
+];
+
+let gquizScore = 0, gquizTotal = 0;
+
+function startGlobalQuiz() {
+  gquizScore = 0; gquizTotal = 0;
+  nextGlobalQuestion();
+}
+
+function nextGlobalQuestion() {
+  // Choisir aléatoirement : verbe (40%), adjectif (30%), grammaire (30%)
+  const roll = Math.random();
+  let type, item, qKey, correct, wrongs, category, word, reading, meaning;
+
+  if (roll < 0.40) {
+    // Verbe
+    type = 'verb';
+    item = VERBS[Math.floor(Math.random() * VERBS.length)];
+    const keys = Object.keys(item.forms);
+    qKey = keys[Math.floor(Math.random() * keys.length)];
+    correct = item.forms[qKey];
+    category = 'Verbe ' + item.type;
+    word = item.dict;
+    reading = item.reading;
+    meaning = item.meaning;
+    // Faux choix depuis d'autres verbes
+    const pool = VERBS.filter(v => v !== item).map(v => v.forms[qKey] || Object.values(v.forms)[0]);
+    wrongs = shuffle(pool).slice(0, 3);
+  } else if (roll < 0.70) {
+    // Adjectif
+    type = 'adj';
+    item = ADJECTIFS[Math.floor(Math.random() * ADJECTIFS.length)];
+    const keys = Object.keys(item.forms);
+    qKey = keys[Math.floor(Math.random() * keys.length)];
+    correct = item.forms[qKey];
+    category = 'Adjectif ' + (item.type === 'na' ? 'な' : 'い');
+    word = item.dict;
+    reading = item.reading;
+    meaning = item.meaning;
+    const pool = ADJECTIFS.filter(a => a !== item).map(a => a.forms[qKey] || Object.values(a.forms)[0]);
+    wrongs = shuffle(pool).slice(0, 3);
+  } else {
+    // Grammaire
+    type = 'gram';
+    item = GRAM_QUESTIONS[Math.floor(Math.random() * GRAM_QUESTIONS.length)];
+    category = item.category;
+    word = item.word;
+    reading = item.reading;
+    meaning = item.meaning;
+    correct = item.correct;
+    wrongs = item.wrongs;
+  }
+
+  // Afficher
+  const catColor = type === 'verb' ? '#ff9f4d' : type === 'adj' ? '#4dffcc' : '#b44dff';
+  document.getElementById('gquiz-category').textContent = category;
+  document.getElementById('gquiz-category').style.color = catColor;
+  document.getElementById('gquiz-word').textContent = word;
+  document.getElementById('gquiz-word').style.color = catColor;
+  document.getElementById('gquiz-reading').textContent = reading;
+  document.getElementById('gquiz-meaning').textContent = meaning;
+
+  let question = '';
+  if (type === 'verb') question = `Quelle est la forme <strong style="color:${catColor}">${qKey}</strong> ?`;
+  else if (type === 'adj') question = `Quelle est la forme <strong style="color:${catColor}">${qKey}</strong> ?`;
+  else question = `Complète avec la bonne forme :`;
+  document.getElementById('gquiz-question').innerHTML = question;
+
+  const choices = shuffle([correct, ...wrongs.slice(0,3)]);
+  const container = document.getElementById('gquiz-choices');
+  container.innerHTML = choices.map(c => `
+    <button onclick="answerGQuiz(this,'${c.replace(/'/g,"\'")}','${correct.replace(/'/g,"\'")}','${catColor}')"
+      style="padding:12px 8px;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:12px;font-family:'Noto Serif JP',serif;font-size:14px;cursor:pointer;transition:all 0.2s;">
+      ${c}
+    </button>`).join('');
+
+  document.getElementById('gquiz-score').textContent = gquizTotal > 0 ? `Score : ${gquizScore}/${gquizTotal}` : '';
+}
+
+function answerGQuiz(btn, chosen, correct, color) {
+  gquizTotal++;
+  document.querySelectorAll('#gquiz-choices button').forEach(b => b.onclick = null);
+  if (chosen === correct) {
+    gquizScore++;
+    btn.style.background = 'rgba(77,255,77,0.2)';
+    btn.style.borderColor = '#4dff4d';
+    btn.style.color = '#4dff4d';
+  } else {
+    btn.style.background = 'rgba(255,77,77,0.2)';
+    btn.style.borderColor = '#ff4d4d';
+    btn.style.color = '#ff4d4d';
+    document.querySelectorAll('#gquiz-choices button').forEach(b => {
+      if (b.textContent.trim() === correct) {
+        b.style.background = 'rgba(77,255,77,0.2)';
+        b.style.borderColor = '#4dff4d';
+        b.style.color = '#4dff4d';
+      }
+    });
+  }
+  document.getElementById('gquiz-score').textContent = `Score : ${gquizScore}/${gquizTotal}`;
+  setTimeout(nextGlobalQuestion, 1000);
 }
 
 </script>
